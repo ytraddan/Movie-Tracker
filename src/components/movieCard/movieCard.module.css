@@ -1,3 +1,16 @@
 .p {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rating {
+  position: absolute;
+  font-size: 0.85rem;
+  margin: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  background-color: rgba(13, 13, 13, 0.845);
+  top: 0;
+  right: 0;
 }

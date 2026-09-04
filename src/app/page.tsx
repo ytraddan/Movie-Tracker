@@ -11,15 +11,13 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <ul className={styles.ul}>
-          {movies.map((movie) => (
-            <li key={movie.id} className={styles.li}>
-              <MovieCard {...movie} />
-            </li>
-          ))}
-        </ul>
-      </main>
+      <ul className={styles.ul}>
+        {movies.map((movie) => (
+          <li key={movie.id} className={styles.li}>
+            <MovieCard {...movie} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

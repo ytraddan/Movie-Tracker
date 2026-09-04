@@ -18,8 +18,8 @@ export default function MovieCard(movie: Movie) {
       <p className={styles.p}>
         <span>{movie.title}</span>
         <span>{movie.release_date}</span>
-        <span>{movie.vote_average}</span>
       </p>
+      <span className={styles.rating}>{movie.vote_average.toFixed(1)}</span>
     </>
   );
 }
