@@ -1,16 +1,16 @@
 .p {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .rating {
   position: absolute;
-  font-size: 0.85rem;
-  margin: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 10px;
-  background-color: rgba(13, 13, 13, 0.845);
-  top: 0;
+  color: var(--color-text-ligth);
+  font-size: var(--font-size-sm);
+  margin: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-transparent);
   right: 0;
 }
