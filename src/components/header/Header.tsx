@@ -12,8 +12,8 @@ export default function Header() {
           className={styles.logo}
           src="/movie.svg"
           alt="Movie icon"
-          width={24}
-          height={24}
+          width={30}
+          height={30}
         />
         <span>Movie Tracker</span>
       </Link>

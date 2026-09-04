@@ -2,9 +2,10 @@
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  padding: var(--space-8) 0;
+  padding: var(--space-6) 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--color-bg);
 }
 
@@ -14,4 +15,7 @@
   gap: var(--space-3);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
+  font-family: var(--font-logo);
+  font-size: var(--font-size-xl);
+  text-transform: uppercase;
 }

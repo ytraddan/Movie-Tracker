@@ -12,6 +12,9 @@
   --radius-md: 10px;
   --radius-lg: 14px;
 
+  --font-logo: var(--font-oswald), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.25rem;
@@ -41,7 +44,7 @@
   --color-bg-elevated: var(--gray-50);
   --color-bg-transparent: var(--gray-950-transparent);
   --color-text: var(--gray-950);
-  --color-text-ligth: var(--gray-50);
+  --color-text-light: var(--gray-50);
   --color-text-muted: var(--gray-500);
   --color-border: var(--gray-200);
   --color-accent: var(--blue-600);
@@ -83,7 +86,7 @@ body {
   overflow-x: hidden;
   color: var(--color-text);
   background: var(--color-bg);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
