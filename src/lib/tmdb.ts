@@ -1,19 +1,24 @@
 import { TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
-import { Movie } from "./tmdb-types";
+import { TrendingResponse } from "./tmdb-types";
 
-export async function GetPopularMovies(): Promise<Movie[]> {
+export async function fetchTrending(): Promise<TrendingResponse> {
   const options = {
     method: "GET",
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
     },
+    next: { revalidate: 3600 },
   };
-  return await fetch(
+
+  const res = await fetch(
     `${TMDB_BASE_URL}/movie/popular?language=en-US&page=1`,
     options,
-  )
-    .then((res) => res.json())
-    .then((res) => res.results)
-    .catch((err) => console.error(err));
+  );
+
+  if (!res.ok) {
+    throw new Error(`TMDB error: ${res.status}`);
+  }
+
+  return res.json();
 }

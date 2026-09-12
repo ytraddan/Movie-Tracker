@@ -1,13 +1,9 @@
-import { GetPopularMovies } from "@/lib/tmdb";
+import { fetchTrending } from "@/lib/tmdb";
 import styles from "./page.module.css";
 import MovieCard from "@/components/movieCard/MovieCard";
 
 export default async function Home() {
-  const movies = await GetPopularMovies();
-
-  if (!movies) {
-    return <div>Loading...</div>;
-  }
+  const { results: movies } = await fetchTrending();
 
   return (
     <div className={styles.page}>
