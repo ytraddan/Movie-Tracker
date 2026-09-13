@@ -1,5 +1,5 @@
 export const TMDB_AUTH_TOKEN =
-  process.env.NEXT_PUBLIC_TMDB_API_READ_ACCESS_TOKEN;
+  process.env.TMDB_API_READ_ACCESS_TOKEN;
 export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 export const IMAGE_SIZES = {
