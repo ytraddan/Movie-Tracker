@@ -1,12 +1,19 @@
 import { fetchTrending } from "@/lib/tmdb";
 import styles from "./page.module.css";
 import MovieCard from "@/components/movieCard/MovieCard";
+import Pagination from "@/components/pagination/Pagination";
 
-export default async function Home() {
-  const { results: movies } = await fetchTrending();
+interface HomePageProps {
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const { page } = await searchParams;
+  const currentPage = Number(page) || 1;
+  const { results: movies, total_pages } = await fetchTrending(currentPage);
 
   return (
-    <div className={styles.page}>
+    <section className={styles.page}>
       <ul className={styles.ul}>
         {movies.map((movie) => (
           <li key={movie.id} className={styles.li}>
@@ -14,6 +21,7 @@ export default async function Home() {
           </li>
         ))}
       </ul>
-    </div>
+      <Pagination currentPage={currentPage} totalPages={total_pages} />
+    </section>
   );
 }

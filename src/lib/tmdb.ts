@@ -1,7 +1,7 @@
 import { TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
 import { TrendingResponse } from "./tmdb-types";
 
-export async function fetchTrending(): Promise<TrendingResponse> {
+export async function fetchTrending(page: number): Promise<TrendingResponse> {
   const options = {
     method: "GET",
     headers: {
@@ -12,7 +12,7 @@ export async function fetchTrending(): Promise<TrendingResponse> {
   };
 
   const res = await fetch(
-    `${TMDB_BASE_URL}/movie/popular?language=en-US&page=1`,
+    `${TMDB_BASE_URL}/movie/popular?language=en-US&page=${page}`,
     options,
   );
 

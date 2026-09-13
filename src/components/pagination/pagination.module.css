@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-8);
+  text-align: center;
+  font-family: var(--font-logo);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+.button {
+  padding-bottom: var(--space-1);
+  border-color: var(--color-border);
+  border-radius: var(--radius-lg);
+  border-style: solid;
+  width: 8rem;
+}
+
+span.button[aria-disabled="true"] {
+  color: var(--color-bg-elevated);
+  pointer-events: none;
+}
