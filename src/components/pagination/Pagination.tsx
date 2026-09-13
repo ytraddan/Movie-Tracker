@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import styles from "./pagination.module.css";
 
 interface PaginationProps {
@@ -17,11 +19,13 @@ export default function Pagination({
     <nav className={styles.pagination}>
       {isFirst ? (
         <span className={styles.button} aria-disabled="true">
-          Previous
+          <ChevronLeftIcon className={styles.arrowIcon} />
+          <span className={`${styles.buttonText} ${styles.left}`}>Back</span>
         </span>
       ) : (
         <Link className={styles.button} href={`/?page=${currentPage - 1}`}>
-          Previous
+          <ChevronLeftIcon className={styles.arrowIcon} />
+          <span className={`${styles.buttonText} ${styles.left}`}>Back</span>
         </Link>
       )}
 
@@ -31,11 +35,13 @@ export default function Pagination({
 
       {isLast ? (
         <span className={styles.button} aria-disabled="true">
-          Next
+          <span className={`${styles.buttonText} ${styles.right}`}>Next</span>
+          <ChevronRightIcon className={styles.arrowIcon} />
         </span>
       ) : (
         <Link className={styles.button} href={`/?page=${currentPage + 1}`}>
-          Next
+          <span className={`${styles.buttonText} ${styles.right}`}>Next</span>
+          <ChevronRightIcon className={styles.arrowIcon} />
         </Link>
       )}
     </nav>

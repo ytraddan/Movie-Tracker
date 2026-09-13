@@ -51,6 +51,7 @@
   --color-text-muted: var(--gray-500);
   --color-border: var(--gray-200);
   --color-accent: var(--blue-200);
+  --color-accent-muted: var(--blue-500);
   --color-accent-hover: var(--blue-200);
   --color-danger: var(--red-500);
 }
@@ -63,6 +64,7 @@
     --color-text-muted: var(--gray-300);
     --color-border: var(--gray-500);
     --color-accent: var(--blue-200);
+    --color-accent-muted: var(--blue-900);
     --color-accent-hover: var(--blue-200);
   }
 }

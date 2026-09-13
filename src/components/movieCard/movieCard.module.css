@@ -10,17 +10,28 @@
   border: 1px solid var(--color-bg-elevated);
 }
 
-.rating {
+.ratingBadge {
+  display: flex;
   position: absolute;
+  right: 0;
+  gap: var(--space-1);
+  align-items: center;
+  margin: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-transparent);
+}
+
+.ratingIcon {
+  width: 18px;
+  height: 18px;
+  color: yellow;
+}
+
+.ratingNumber {
   color: var(--color-text-light);
   font-size: var(--font-size-sm);
-  font-family: var(--font-secondary);
-  margin: var(--space-2);
-  font-variant-numeric: tabular-nums;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-xl);
-  background-color: var(--color-bg-transparent);
-  right: 0;
+  padding-right: var(--space-1);
 }
 
 .description {
