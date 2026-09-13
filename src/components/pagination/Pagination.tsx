@@ -25,8 +25,8 @@ export default function Pagination({
         </Link>
       )}
 
-      <span>
-        {currentPage}/{totalPages}
+      <span className={styles.pageNumber}>
+        {currentPage} / {totalPages}
       </span>
 
       {isLast ? (
