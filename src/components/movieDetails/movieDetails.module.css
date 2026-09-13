@@ -1,0 +1,72 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.info {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.releaseRuntimeGenres {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.genres {
+  display: flex;
+  gap: var(--space-2);
+  list-style-type: none;
+}
+
+.rating {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cast {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: var(--space-4);
+}
+
+.castMember {
+  display: flex;
+  flex-direction: column;
+}
+
+.castMemberImage {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.castMemberCharacter {
+  color: var(--color-text-muted);
+}
+
+.similar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

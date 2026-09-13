@@ -1,14 +1,14 @@
 import { TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
-import { TrendingResponse } from "./tmdb-types";
+import { MovieDetails, PaginatedMovies } from "./tmdb-types";
 
-export async function fetchTrending(page: number): Promise<TrendingResponse> {
+export async function fetchTrending(page: number): Promise<PaginatedMovies> {
   const options = {
     method: "GET",
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
     },
-    next: { revalidate: 3600 },
+    next: { revalidate: 60 * 60 },
   };
 
   const res = await fetch(
@@ -17,7 +17,35 @@ export async function fetchTrending(page: number): Promise<TrendingResponse> {
   );
 
   if (!res.ok) {
-    throw new Error(`TMDB error: ${res.status}`);
+    throw new Error(`TMDB fetchTrending failed: ${res.status}`);
+  }
+
+  return res.json();
+}
+
+export async function fetchMovieDetails(
+  id: string,
+): Promise<MovieDetails | null> {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
+    },
+    next: { revalidate: 60 * 60 * 24 },
+  };
+
+  const res = await fetch(
+    `${TMDB_BASE_URL}/movie/${id}?append_to_response=credits,similar`,
+    options,
+  );
+
+  if (res.status === 404) {
+    return null;
+  }
+
+  if (!res.ok) {
+    throw new Error(`TMDB fetchMovieDetails failed: ${res.status}`);
   }
 
   return res.json();

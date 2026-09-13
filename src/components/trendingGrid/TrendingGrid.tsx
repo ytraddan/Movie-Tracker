@@ -7,7 +7,7 @@ export default function TrendingGrid({ movies }: { movies: Movie[] }) {
     <ul className={styles.trendingGrid}>
       {movies.map((movie) => (
         <li key={movie.id}>
-          <MovieCard {...movie} />
+          <MovieCard movie={movie} />
         </li>
       ))}
     </ul>

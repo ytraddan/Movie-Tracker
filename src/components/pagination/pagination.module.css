@@ -3,13 +3,13 @@
   justify-content: space-between;
   align-items: center;
   margin-top: var(--space-8);
-  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
 }
 
 .pageNumber {
-  padding-top: var(--space-1);
+  padding-top: var(--space-2);
   font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg);
 }
 
 .button {
@@ -38,18 +38,16 @@ span.button[aria-disabled="true"] {
   border-color: var(--color-bg-elevated);
   pointer-events: none;
 }
-.buttonText {
-  padding-bottom: var(--space-1);
-}
 
 .left {
   margin-right: var(--space-2);
 }
 .right {
   margin-left: var(--space-2);
+  padding-bottom: var(--space-1);
 }
 
 .arrowIcon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
