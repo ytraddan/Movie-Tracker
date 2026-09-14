@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
+  margin-bottom: var(--space-16);
 }
 
 .info {
@@ -14,46 +15,6 @@
   border: 1px solid var(--color-bg-elevated);
 }
 
-.meta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.moreInfo {
-  display: flex;
-  gap: var(--space-1);
-  color: var(--color-text-muted);
-}
-
-.genres {
-  display: flex;
-  gap: var(--space-1);
-  list-style-type: none;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.starIcon {
-  color: var(--color-rating);
-  height: 24;
-}
-
-.ratingNumber {
-  font-size: var(--font-size-lg);
-}
-
-.voteCount {
-  color: var(--color-text-muted);
-  margin-left: var(--space-2);
-  align-self: flex-end;
-  font-weight: var(--font-weight-regular);
-}
-
 .description {
   display: flex;
   flex-direction: column;
@@ -63,10 +24,4 @@
 .descriptionText {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
-}
-
-.similar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
 }

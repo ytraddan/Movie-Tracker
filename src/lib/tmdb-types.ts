@@ -42,7 +42,6 @@ export interface MovieDetails {
   vote_count: number;
   genres: Genre[];
   credits: Credits;
-  similar: PaginatedMovies;
 }
 
 export type PaginatedMovies = PaginatedResponse<Movie>;

@@ -6,12 +6,11 @@ import { CastMember } from "@/lib/tmdb-types";
 
 interface CastListProps {
   cast: CastMember[];
+  castLimit: number;
 }
 
-const CAST_LIMIT = 7;
-
-export default function CastList({ cast }: CastListProps) {
-  const visibleCast = cast.slice(0, CAST_LIMIT);
+export default function CastList({ cast, castLimit }: CastListProps) {
+  const visibleCast = cast.slice(0, castLimit);
 
   if (visibleCast.length === 0) {
     return null;
