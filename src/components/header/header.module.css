@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-transparent);
 }
 
 .title {
@@ -16,4 +16,8 @@
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-xl);
   text-transform: uppercase;
+}
+
+.highlighted {
+  color: var(--color-accent);
 }

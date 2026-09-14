@@ -15,7 +15,10 @@ export default function Header() {
           width={30}
           height={30}
         />
-        <span>Movie Tracker</span>
+        <div>
+          <span>Movie </span>
+          <span className={styles.highlighted}>Tracker</span>
+        </div>
       </Link>
       <SearchBar />
       <FavoriteButton />

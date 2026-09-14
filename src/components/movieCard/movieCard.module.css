@@ -13,6 +13,10 @@
   border-color: var(--color-accent-hover);
 }
 
+.movieCard:hover .releaseYear {
+  color: var(--color-accent-muted);
+}
+
 .poster {
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-bg-elevated);
@@ -38,7 +42,7 @@
 }
 
 .ratingNumber {
-  color: var(--color-text-light);
+  color: var(--color-text);
   font-size: var(--font-size-sm);
   padding-right: var(--space-1);
 }

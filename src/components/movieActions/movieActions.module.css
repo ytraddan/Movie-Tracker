@@ -31,6 +31,24 @@
 .button:hover {
   color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
-  background-color: var(--color-accent-muted);
+  background-color: var(--color-accent-surface);
   cursor: pointer;
+}
+
+.button:hover.favorite {
+  color: var(--color-favorite);
+  border-color: var(--color-favorite);
+  background-color: var(--color-bg-favorite);
+}
+
+.button:hover.watchlist {
+  color: var(--color-watchlist);
+  border-color: var(--color-watchlist);
+  background-color: var(--color-accent-surface);
+}
+
+.button:hover.watched {
+  color: var(--color-watched);
+  border-color: var(--color-watched);
+  background-color: var(--color-bg-watched);
 }
