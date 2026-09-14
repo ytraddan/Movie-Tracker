@@ -1,3 +1,4 @@
+import BackButton from "@/components/backButton/BackButton";
 import MovieDetails from "@/components/movieDetails/MovieDetails";
 import SimlarMovies from "@/components/movieDetails/SimilarMovies";
 import { SimilarMoviesSkeleton } from "@/components/skeletons/SimilarMoviesSkeleton";
@@ -22,6 +23,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
 
   return (
     <>
+      <BackButton />
       <MovieDetails movie={movie} castLimit={CAST_LIMIT} />
       <Suspense fallback={<SimilarMoviesSkeleton itemsCount={SIMLAR_LIMIT} />}>
         <SimlarMovies movieId={id} similarLimit={SIMLAR_LIMIT} />
