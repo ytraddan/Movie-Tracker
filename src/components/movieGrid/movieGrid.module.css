@@ -1,4 +1,4 @@
-.trendingGrid {
+.movieGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 240px);
   gap: var(--space-8);

@@ -1,7 +1,7 @@
 import { fetchTrending } from "@/lib/tmdb";
 import styles from "./page.module.css";
 import Pagination from "@/components/pagination/Pagination";
-import TrendingGrid from "@/components/trendingGrid/TrendingGrid";
+import MovieGrid from "@/components/movieGrid/MovieGrid";
 
 interface HomePageProps {
   searchParams: Promise<{ page?: string }>;
@@ -14,7 +14,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <section className={styles.homePage}>
-      <TrendingGrid movies={movies} />
+      <MovieGrid movies={movies} />
       <Pagination currentPage={currentPage} totalPages={total_pages} />
     </section>
   );

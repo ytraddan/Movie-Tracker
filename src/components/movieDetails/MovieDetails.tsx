@@ -1,16 +1,16 @@
+import { StarIcon } from "@heroicons/react/24/solid";
 import { IMAGE_SIZES } from "@/lib/constants";
 import { type MovieDetails } from "@/lib/tmdb-types";
 import { getImageUrl } from "@/lib/utils";
+import MovieGrid from "@/components/movieGrid/MovieGrid";
 import Image from "next/image";
 import styles from "./movieDetails.module.css";
-import { StarIcon } from "@heroicons/react/24/solid";
-import TrendingGrid from "../trendingGrid/TrendingGrid";
 
 interface MovieDetailsProps {
   movie: MovieDetails;
 }
 
-const CAST_LIMIT = 8;
+const CAST_LIMIT = 7;
 const SIMLAR_LIMIT = 5;
 
 export default function MovieDetails({ movie }: MovieDetailsProps) {
@@ -79,7 +79,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
       </section>
       <section className={styles.similar}>
         <h2>Similar</h2>
-        <TrendingGrid movies={visibleSimilarMovies} />
+        <MovieGrid movies={visibleSimilarMovies} />
       </section>
     </article>
   );
