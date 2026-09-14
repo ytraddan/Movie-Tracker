@@ -57,7 +57,7 @@
 }
 
 .releaseYear {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   transition: color 0.2s ease;
 }

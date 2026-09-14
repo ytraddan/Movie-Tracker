@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "./movieDetails.module.css";
 import CastList from "./CastList";
 import MovieMeta from "./MovieMeta";
+import MovieActions from "../movieActions/MovieActions";
 
 interface MovieDetailsProps {
   movie: MovieDetails;
@@ -24,7 +25,10 @@ export default function MovieDetails({ movie, castLimit }: MovieDetailsProps) {
           height={480}
           className={styles.poster}
         />
-        <MovieMeta movie={movie} />
+        <div>
+          <MovieMeta movie={movie} />
+          <MovieActions />
+        </div>
       </div>
 
       <section className={styles.description}>
