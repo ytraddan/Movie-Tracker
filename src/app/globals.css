@@ -21,7 +21,7 @@
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
 
-  --font-weight-regular: 400;
+  --font-weight-regular: 300;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
@@ -42,6 +42,7 @@
   --blue-500: #1a5ae4;
   --blue-900: #032042;
   --red-500: #ef4444;
+  --yellow-500: yellow;
 
   --color-bg: var(--gray-0);
   --color-bg-elevated: var(--gray-500);
@@ -53,6 +54,7 @@
   --color-accent: var(--blue-200);
   --color-accent-muted: var(--blue-500);
   --color-accent-hover: var(--blue-200);
+  --color-rating: var(--yellow-500);
   --color-danger: var(--red-500);
 }
 

@@ -1,24 +1,28 @@
-import { StarIcon } from "@heroicons/react/24/solid";
+import { StarIcon } from "@heroicons/react/20/solid";
 import { IMAGE_SIZES } from "@/lib/constants";
 import { type MovieDetails } from "@/lib/tmdb-types";
 import { getImageUrl } from "@/lib/utils";
 import MovieGrid from "@/components/movieGrid/MovieGrid";
 import Image from "next/image";
 import styles from "./movieDetails.module.css";
+import CastList from "./CastList";
 
 interface MovieDetailsProps {
   movie: MovieDetails;
 }
 
-const CAST_LIMIT = 7;
-const SIMLAR_LIMIT = 5;
+const SIMLAR_LIMIT = 10;
 
 export default function MovieDetails({ movie }: MovieDetailsProps) {
   const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.original);
   const releaseYear = movie.release_date.split("-")[0];
+
   const durationHours = Math.floor(movie.runtime / 60);
   const durationMinutes = movie.runtime % 60;
-  const visibleCast = movie.credits.cast.slice(0, CAST_LIMIT);
+
+  const rating = movie.vote_average.toFixed(1);
+  const voteCount = movie.vote_count.toLocaleString();
+
   const visibleSimilarMovies = movie.similar.results.slice(0, SIMLAR_LIMIT);
 
   return (
@@ -33,52 +37,39 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
         />
         <div className={styles.meta}>
           <h1 className={styles.title}>{movie.title}</h1>
-          <div className={styles.releaseRuntimeGenres}>
+          <div className={styles.moreInfo}>
             <span className={styles.releaseYear}>{releaseYear}</span>
+            {"·"}
             <span className={styles.runtime}>
-              {durationHours} hours {durationMinutes} minutes
+              {durationHours}h {durationMinutes}m
             </span>
+            {"·"}
             <ul className={styles.genres}>
-              {movie.genres.map((genre) => (
+              {movie.genres.map((genre, index, genres) => (
                 <li className={styles.genre} key={genre.id}>
                   {genre.name}
+                  {index != genres.length - 1 && ","}
                 </li>
               ))}
             </ul>
           </div>
           <div className={styles.rating}>
-            <StarIcon height={24} className={styles.starIcon} />
-            <span>{movie.vote_average}</span>
-            <span>{movie.vote_count}</span>
+            <StarIcon className={styles.starIcon} />
+            <span className={styles.ratingNumber}>{rating}</span>
+            <span className={styles.voteCount}>{voteCount} ratings</span>
           </div>
         </div>
       </div>
+
       <div className={styles.description}>
-        <h2 className={styles.title}>Decription</h2>
-        <p>{movie.overview}</p>
+        <h2 className={styles.descriptionTitle}>Decription</h2>
+        <p className={styles.descriptionText}>{movie.overview}</p>
       </div>
-      <section className={styles.cast}>
-        <h2 className={styles.castTitle}>Cast</h2>
-        <ul className={styles.castList}>
-          {visibleCast.map((member) => (
-            <li className={styles.castMember} key={member.id}>
-              <Image
-                src={getImageUrl(member.profile_path, IMAGE_SIZES.poster.lg)}
-                className={styles.castMemberImage}
-                height={170}
-                width={170}
-                alt={member.name}
-              />
-              <span className={styles.castMemberName}>{member.name}</span>
-              <span className={styles.castMemberCharacter}>
-                {member.character}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
+
+      <CastList cast={movie.credits.cast} />
+
       <section className={styles.similar}>
-        <h2>Similar</h2>
+        <h2>Similar Movies</h2>
         <MovieGrid movies={visibleSimilarMovies} />
       </section>
     </article>

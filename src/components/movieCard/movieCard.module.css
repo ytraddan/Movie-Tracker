@@ -34,7 +34,7 @@
 .ratingIcon {
   width: 18px;
   height: 18px;
-  color: yellow;
+  color: var(--color-rating);
 }
 
 .ratingNumber {
