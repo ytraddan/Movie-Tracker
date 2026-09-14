@@ -45,3 +45,5 @@ export interface MovieDetails {
 }
 
 export type PaginatedMovies = PaginatedResponse<Movie>;
+
+export type Category = "popular" | "top_rated" | "upcoming";

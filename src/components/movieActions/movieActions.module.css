@@ -29,9 +29,6 @@
 }
 
 .button:hover {
-  color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-  background-color: var(--color-accent-surface);
   cursor: pointer;
 }
 

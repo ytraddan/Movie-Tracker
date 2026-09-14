@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: var(--space-8);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
 }
 
 .pageNumber {
@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   gap: var(--space-1);
-  border: 2px solid var(--color-border-strong);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   width: 6rem;
   height: 3rem;
@@ -29,7 +29,7 @@
 
 .button:hover {
   color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  border-color: var(--color-accent);
   background-color: var(--color-accent-surface);
 }
 
