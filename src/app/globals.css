@@ -6,8 +6,10 @@
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-12: 3rem;
+  --space-14: 3.5rem;
   --space-16: 4rem;
   --search-max-width: 30rem;
+  --dropdown-max-height: 40rem;
 
   --radius-sm: 4px;
   --radius-md: 10px;
@@ -81,6 +83,7 @@
   --color-accent: var(--gold-400);
   --color-accent-hover: var(--gold-300);
   --color-accent-muted: var(--gold-700);
+  --color-accent-dark: var(--gold-900);
   --color-accent-surface: rgb(216 173 63 / 12%);
 
   --color-rating: var(--gold-400);

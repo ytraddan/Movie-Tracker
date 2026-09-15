@@ -8,9 +8,14 @@ export interface PaginatedResponse<T> {
 export interface Movie {
   id: string;
   title: string;
+  overview: string;
   poster_path: string;
   release_date: string;
   vote_average: number;
+}
+
+export interface MovieWithOverview extends Movie {
+  overview: string;
 }
 
 export interface Genre {
@@ -45,5 +50,7 @@ export interface MovieDetails {
 }
 
 export type PaginatedMovies = PaginatedResponse<Movie>;
+
+export type PaginatedMoviesWithOverview = PaginatedResponse<MovieWithOverview>;
 
 export type Category = "popular" | "top_rated" | "upcoming";

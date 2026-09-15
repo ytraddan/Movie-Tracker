@@ -60,3 +60,20 @@ export async function fetchSimilarMovies(id: string): Promise<PaginatedMovies> {
 
   return res.json();
 }
+
+export async function fetchMoviesByQuery(
+  query: string,
+): Promise<PaginatedMovies> {
+  const res = await fetch(`${TMDB_BASE_URL}/search/movie?query=${query}`, {
+    headers: {
+      Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
+    },
+    next: { revalidate: 60 * 5 },
+  });
+
+  if (!res.ok) {
+    throw new Error(`TMDB fetchMoviesByQuery failed: ${res.status}`);
+  }
+
+  return res.json();
+}
