@@ -14,10 +14,25 @@ interface MovieDetailsProps {
 
 export default function MovieDetails({ movie, castLimit }: MovieDetailsProps) {
   const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.original);
+  // const backdropUrl = getImageUrl(
+  //   movie.backdrop_path,
+  //   IMAGE_SIZES.poster.original,
+  // );
 
   return (
     <article className={styles.wrapper}>
       <div className={styles.info}>
+        {/* <Image
+        src={backdropUrl}
+        alt={movie.title}
+        fill
+        priority
+        className={styles.backdropImage}
+        sizes="100vw"
+      />
+      <div className={styles.backdropOverlay} />
+      <div className={styles.backdropOverlayBottom} /> */}
+
         <Image
           src={posterUrl}
           alt={movie.title}

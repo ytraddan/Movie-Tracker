@@ -41,7 +41,7 @@
 .button:hover.watchlist {
   color: var(--color-watchlist);
   border-color: var(--color-watchlist);
-  background-color: var(--color-accent-surface);
+  background-color: var(--color-bg-watchlist);
 }
 
 .button:hover.watched {
