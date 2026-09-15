@@ -17,6 +17,7 @@
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-xl);
   text-transform: uppercase;
+  text-wrap-mode: nowrap;
 }
 
 .highlighted {

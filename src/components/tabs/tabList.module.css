@@ -13,7 +13,7 @@
   width: 6rem;
   height: 2.5rem;
   color: var(--color-text-muted);
-  padding-bottom: var(--space-1);
+  font-family: var(--font-secondary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   transition:
