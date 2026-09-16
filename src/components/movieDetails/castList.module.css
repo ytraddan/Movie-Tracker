@@ -6,10 +6,10 @@
 
 .castList {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  overflow-x: auto;
   list-style: none;
-  gap: var(--space-4);
+  gap: var(--space-8);
+  padding-bottom: var(--space-4);
 }
 
 .castTitle {
@@ -30,4 +30,17 @@
 
 .castMemberCharacter {
   color: var(--color-text-muted);
+}
+
+.castList::-webkit-scrollbar {
+  height: 6px;
+}
+
+.castList::-webkit-scrollbar-thumb {
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.castList::-webkit-scrollbar-track {
+  background: transparent;
 }

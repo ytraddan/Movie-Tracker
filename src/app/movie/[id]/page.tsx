@@ -9,8 +9,8 @@ interface MoviePageProps {
   params: { id: string };
 }
 
-const SIMLAR_LIMIT = 10;
-const CAST_LIMIT = 7;
+const SIMLAR_LIMIT = 5;
+const CAST_LIMIT = 14;
 
 export default async function MoviePage({ params }: MoviePageProps) {
   const { id } = await params;
