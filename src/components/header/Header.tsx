@@ -6,22 +6,24 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
-      <Link href="/" className={styles.title}>
-        <Image
-          className={styles.logo}
-          src="/movie.svg"
-          alt="Movie icon"
-          width={30}
-          height={30}
-        />
-        <div>
-          <span>Movie </span>
-          <span className={styles.highlighted}>Tracker</span>
-        </div>
-      </Link>
-      <SearchBar />
-      <FavoriteButton />
-    </header>
+    <div className={styles.wrapper}>
+      <header className={styles.header}>
+        <Link href="/" className={styles.title}>
+          <Image
+            className={styles.logo}
+            src="/movie.svg"
+            alt="Movie icon"
+            width={30}
+            height={30}
+          />
+          <div>
+            <span>Movie </span>
+            <span className={styles.highlighted}>Tracker</span>
+          </div>
+        </Link>
+        <SearchBar />
+        <FavoriteButton />
+      </header>
+    </div>
   );
 }
