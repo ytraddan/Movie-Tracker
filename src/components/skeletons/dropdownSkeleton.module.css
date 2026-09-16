@@ -1,0 +1,28 @@
+.movieList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style-type: none;
+  width: 100%;
+}
+
+.movie {
+  padding: var(--space-2);
+  background-color: var(--color-bg-secondary);
+  height: 84px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-strong);
+  animation: pulse-animation 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

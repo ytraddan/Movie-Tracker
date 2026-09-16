@@ -1,6 +1,6 @@
 .movie {
   padding: var(--space-2);
-  background-color: var(--color-bg-transparent);
+  background-color: var(--color-bg-overlay);
   display: flex;
   gap: var(--space-4);
   border-radius: var(--radius-lg);
@@ -22,6 +22,10 @@
   background-color: var(--color-accent-dark);
 }
 
+.movie:hover .title {
+  color: var(--color-accent);
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -35,6 +39,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.2s ease;
 }
 
 .meta {

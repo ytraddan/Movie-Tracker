@@ -1,6 +1,7 @@
 import SearchResultItem from "./SearchResultItem";
 import { Movie } from "@/lib/tmdb-types";
 import styles from "./searchDropdown.module.css";
+import DropdownSkeleton from "../skeletons/DropdownSkeleton";
 
 interface SearchDropdownProps {
   isLoading: boolean;
@@ -15,16 +16,31 @@ export default function SearchDropdown({
   movies,
   onSelect,
 }: SearchDropdownProps) {
+  if (isLoading) {
+    return (
+      <div className={styles.wrapper}>
+        <DropdownSkeleton />
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.error}>Failed to load results</div>
+      </div>
+    );
+  }
+
+  if (movies.length === 0) {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.error}>No results found</div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.wrapper}>
-      {isLoading && <div className="">Loading...</div>}
-
-      {isError && <div className="">Failed to load results</div>}
-
-      {!isLoading && !isError && movies.length === 0 && (
-        <div className="">No results found</div>
-      )}
-
       <ul className={styles.movieList}>
         {movies.map((movie) => (
           <li key={movie.id} onClick={onSelect}>
