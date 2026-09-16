@@ -3,6 +3,9 @@
   display: flex;
   gap: var(--space-2);
   flex-direction: column;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-xl);
+  padding-bottom: var(--space-2);
 }
 
 .movieCard:hover .title {

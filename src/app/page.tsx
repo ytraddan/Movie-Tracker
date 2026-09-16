@@ -5,6 +5,7 @@ import MovieGrid from "@/components/movieGrid/MovieGrid";
 import { Category } from "@/lib/tmdb-types";
 import { CATEGORIES } from "@/lib/constants";
 import Tabs from "@/components/tabs/TabList";
+import Image from "next/image";
 
 interface HomePageProps {
   searchParams: Promise<{ page?: string; tab?: string }>;
@@ -25,6 +26,17 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <section className={styles.homePage}>
+      <div className={styles.pageBackground}>
+        <Image
+          src="/theater.jpg"
+          alt="background image of a dark cinema"
+          fill
+          priority
+          className={styles.pageBackgroundImage}
+        />
+        <div className={styles.pageBackgroundOverlay} />
+      </div>
+
       <Tabs activeTab={category} />
       <MovieGrid movies={movies} />
       <Pagination

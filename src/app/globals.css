@@ -87,7 +87,7 @@
   --color-accent-hover: var(--gold-300);
   --color-accent-muted: var(--gold-700);
   --color-accent-dark: var(--gold-900);
-  --color-accent-surface: rgb(216 173 63 / 12%);
+  --color-accent-surface: rgb(86, 67, 14, 0.7);
 
   --color-rating: var(--gold-400);
   --color-danger: var(--red-400);
