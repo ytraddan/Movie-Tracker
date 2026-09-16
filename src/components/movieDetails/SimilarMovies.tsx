@@ -21,7 +21,7 @@ export default async function SimlarMovies({
 
   return (
     <section className={styles.similar}>
-      <h2>Similar Movies</h2>
+      <h2 className={styles.similarTitle}>Similar Movies</h2>
       <MovieGrid movies={visibleSimilarMovies} />
     </section>
   );

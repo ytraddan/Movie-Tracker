@@ -12,6 +12,10 @@
   gap: var(--space-4);
 }
 
+.castTitle {
+  font-weight: var(--font-weight-medium);
+}
+
 .castMember {
   display: flex;
   flex-direction: column;

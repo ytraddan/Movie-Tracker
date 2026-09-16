@@ -21,8 +21,8 @@
 }
 
 .button:hover {
-  color: var(--color-accent-hover);
-  background-color: var(--color-accent-surface);
+  color: var(--color-accent);
+  background-color: var(--color-accent-dark);
   border-color: var(--color-accent);
 }
 
