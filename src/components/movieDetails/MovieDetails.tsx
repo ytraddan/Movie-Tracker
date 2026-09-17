@@ -25,11 +25,12 @@ export default function MovieDetails({ movie, castLimit }: MovieDetailsProps) {
       <div className={styles.hero}>
         <div className={styles.backdropWrapper}>
           <Image
+            className={styles.backdropImage}
             src={backdropUrl}
             alt={movie.title}
-            fill
             sizes="100vw"
-            className={styles.backdropImage}
+            priority
+            fill
           />
           <div className={styles.backdropOverlayLeft} />
           <div className={styles.backdropOverlayRight} />
@@ -41,16 +42,15 @@ export default function MovieDetails({ movie, castLimit }: MovieDetailsProps) {
         <div className={styles.heroContent}>
           <div className={styles.info}>
             <Image
-              priority
+              className={styles.poster}
               src={posterUrl}
               alt={movie.title}
               width={320}
               height={480}
-              className={styles.poster}
             />
             <div className={styles.metaWrapper}>
               <MovieMeta movie={movie} />
-              <MovieActions />
+              <MovieActions movie={movie} />
               <section className={styles.overview}>
                 <h2 className={styles.overviewTitle}>Overview</h2>
                 <p className={styles.overviewText}>{movie.overview}</p>
