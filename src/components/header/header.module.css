@@ -9,7 +9,7 @@
 
 .header {
   max-width: var(--content-max-width);
-  padding: var(--space-4) var(--space-16);
+  padding: var(--space-4) var(--space-20);
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr minmax(0, var(--search-max-width)) 1fr;

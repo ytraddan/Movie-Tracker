@@ -8,11 +8,12 @@
   --space-12: 3rem;
   --space-14: 3.5rem;
   --space-16: 4rem;
+  --space-20: 5rem;
 
   --search-max-width: 30rem;
   --text-max-width: 50rem;
   --dropdown-max-height: 40rem;
-  --content-max-width: 1500px;
+  --content-max-width: 1600px;
 
   --radius-sm: 4px;
   --radius-md: 10px;
@@ -130,7 +131,7 @@ body {
 
 main {
   max-width: var(--content-max-width);
-  padding: 0 var(--space-16);
+  padding: 0 var(--space-20);
   padding-bottom: var(--space-8);
   margin-inline: auto;
 }
