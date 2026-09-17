@@ -3,7 +3,7 @@
   display: flex;
   gap: var(--space-2);
   flex-direction: column;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-overlay);
   border-radius: var(--radius-xl);
   padding-bottom: var(--space-2);
 }
@@ -22,7 +22,7 @@
 
 .poster {
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border-strong);
+  border: 1px solid var(--color-border);
   transition: border-color 0.2s ease;
 }
 
