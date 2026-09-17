@@ -1,8 +1,8 @@
-import { TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
-import { Category, MovieDetails, PaginatedMovies } from "./tmdb-types";
+import { HomeTab, TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
+import { MovieDetails, PaginatedMovies } from "./tmdb-types";
 
 export async function fetchMovies(
-  category: Category,
+  category: HomeTab,
   page: number,
 ): Promise<PaginatedMovies> {
   const res = await fetch(

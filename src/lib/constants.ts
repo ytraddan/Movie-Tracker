@@ -16,6 +16,7 @@ interface HomeTabConfig {
   id: HomeTab;
   label: string;
 }
+
 interface CollectionTabConfig {
   id: CollectionTab;
   label: string;
