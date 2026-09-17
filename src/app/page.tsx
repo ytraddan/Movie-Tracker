@@ -1,11 +1,11 @@
+import { getHomeTabId } from "@/lib/utils";
 import { fetchMovies } from "@/lib/tmdb";
-import styles from "./page.module.css";
+import { HOME_TABS } from "@/lib/constants";
 import Pagination from "@/components/pagination/Pagination";
 import MovieGrid from "@/components/movieGrid/MovieGrid";
-import { HOME_TABS } from "@/lib/constants";
 import Tabs from "@/components/tabs/Tabs";
-import Image from "next/image";
-import { getHomeTabId } from "@/lib/utils";
+import styles from "./page.module.css";
+import BackgroundImage from "@/components/backgroundImage/BackgroundImage";
 
 interface HomePageProps {
   searchParams: Promise<{ page?: string; tab?: string }>;
@@ -24,17 +24,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <section className={styles.homePage}>
-      <div className={styles.pageBackground}>
-        <Image
-          src="/theater.jpg"
-          alt="background image of a dark cinema"
-          fill
-          priority
-          className={styles.pageBackgroundImage}
-        />
-        <div className={styles.pageBackgroundOverlay} />
-      </div>
-
+      <BackgroundImage path="/home-background.png" />
       <Tabs tabs={HOME_TABS} activeTab={activeTab} basePath="/" />
       <MovieGrid movies={movies} />
       <Pagination
