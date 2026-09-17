@@ -2,12 +2,11 @@ import Link from "next/link";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import styles from "./pagination.module.css";
-import { Category } from "@/lib/tmdb-types";
 
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  activeTab: Category;
+  activeTab: string;
 }
 
 export default function Pagination({

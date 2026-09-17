@@ -6,12 +6,14 @@ export interface PaginatedResponse<T> {
 }
 
 export interface Movie {
-  id: string;
+  id: number;
   title: string;
   overview: string;
   poster_path: string;
+  backdrop_path: string;
   release_date: string;
   vote_average: number;
+  vote_count: number;
 }
 
 export interface MovieWithOverview extends Movie {
@@ -35,16 +37,8 @@ export interface CastMember {
   order: number;
 }
 
-export interface MovieDetails {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
-  backdrop_path: string;
-  release_date: string;
+export interface MovieDetails extends Movie {
   runtime: number;
-  vote_average: number;
-  vote_count: number;
   genres: Genre[];
   credits: Credits;
 }
@@ -52,5 +46,3 @@ export interface MovieDetails {
 export type PaginatedMovies = PaginatedResponse<Movie>;
 
 export type PaginatedMoviesWithOverview = PaginatedResponse<MovieWithOverview>;
-
-export type Category = "popular" | "top_rated" | "upcoming";

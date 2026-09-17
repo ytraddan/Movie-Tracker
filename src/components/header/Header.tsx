@@ -26,7 +26,7 @@ export default function Header() {
         <SearchBar />
 
         <Link href={"/collection"} className={styles.collectionButton}>
-          <span className={styles.collectionText}>Favorites</span>
+          <span className={styles.collectionText}>My Collection</span>
           <BookmarkIcon className={styles.bookmarkIcon} />
         </Link>
       </header>

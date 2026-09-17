@@ -2,10 +2,10 @@ import { fetchMovies } from "@/lib/tmdb";
 import styles from "./page.module.css";
 import Pagination from "@/components/pagination/Pagination";
 import MovieGrid from "@/components/movieGrid/MovieGrid";
-import { Category } from "@/lib/tmdb-types";
-import { CATEGORIES } from "@/lib/constants";
-import Tabs from "@/components/tabs/TabList";
+import { HOME_TABS } from "@/lib/constants";
+import Tabs from "@/components/tabs/Tabs";
 import Image from "next/image";
+import { getHomeTabId } from "@/lib/utils";
 
 interface HomePageProps {
   searchParams: Promise<{ page?: string; tab?: string }>;
@@ -15,12 +15,10 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   const { page, tab } = await searchParams;
 
   const currentPage = Number(page) || 1;
-  const category = CATEGORIES.includes(tab as Category)
-    ? (tab as Category)
-    : "popular";
+  const activeTab = getHomeTabId(tab);
 
   const { results: movies, total_pages } = await fetchMovies(
-    category,
+    activeTab,
     currentPage,
   );
 
@@ -37,12 +35,12 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         <div className={styles.pageBackgroundOverlay} />
       </div>
 
-      <Tabs activeTab={category} />
+      <Tabs tabs={HOME_TABS} activeTab={activeTab} basePath="/" />
       <MovieGrid movies={movies} />
       <Pagination
         currentPage={currentPage}
         totalPages={total_pages}
-        activeTab={category}
+        activeTab={activeTab}
       />
     </section>
   );
