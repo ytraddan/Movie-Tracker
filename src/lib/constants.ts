@@ -12,35 +12,38 @@ export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 export type HomeTab = "popular" | "top_rated" | "upcoming";
 export type CollectionTab = "favorites" | "watchLater" | "watched";
 
-interface HomeTabConfig {
-  id: HomeTab;
-  label: string;
-}
-
-interface CollectionTabConfig {
-  id: CollectionTab;
+export interface TabConfig<T extends string> {
+  id: T;
   label: string;
   emptyMessage: string;
-  icon: ComponentType<SVGProps<SVGSVGElement>>;
+  icon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
-export const HOME_TABS: HomeTabConfig[] = [
-  { id: "popular", label: "Popular" },
-  { id: "top_rated", label: "Top Rated" },
-  { id: "upcoming", label: "Upcoming" },
+export const HOME_TABS: TabConfig<HomeTab>[] = [
+  {
+    id: "popular",
+    label: "Popular",
+    emptyMessage: "No results found",
+  },
+  {
+    id: "top_rated",
+    label: "Top Rated",
+    emptyMessage: "No results found",
+  },
+  { id: "upcoming", label: "Upcoming", emptyMessage: "No results found" },
 ];
 
-export const COLLECTION_TABS: CollectionTabConfig[] = [
+export const COLLECTION_TABS: TabConfig<CollectionTab>[] = [
   {
     id: "favorites",
     label: "Favorites",
-    emptyMessage: "Your favorites list is empty",
+    emptyMessage: "You haven't added anything to your favorites yet",
     icon: HeartIcon,
   },
   {
     id: "watchLater",
     label: "Watch later",
-    emptyMessage: "You haven't saved anything yet",
+    emptyMessage: "You haven't saved anything as watch later yet",
     icon: ClockIcon,
   },
   {
