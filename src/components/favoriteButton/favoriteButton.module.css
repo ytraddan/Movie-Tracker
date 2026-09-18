@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  margin: var(--space-2);
+  padding: var(--space-1) var(--space-1);
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-bg-transparent);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--color-bg-favorite);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-favorite);
+}
