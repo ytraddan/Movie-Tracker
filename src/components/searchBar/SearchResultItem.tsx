@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Movie } from "@/lib/tmdb-types";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { IMAGE_SIZES } from "@/lib/constants";
 import { getImageUrl } from "@/lib/utils";
 import styles from "./searchResultItem.module.css";
+import ImageWithFallback from "../imageWithFallback/ImageWithFallback";
 
 interface SearchResultItem {
   movie: Movie;
@@ -17,7 +17,8 @@ export default function SearchResultItem({ movie }: SearchResultItem) {
 
   return (
     <Link className={styles.movie} href={`/movie/${movie.id}`}>
-      <Image
+      <ImageWithFallback
+        fallback="/poster-fallback.png"
         height={84}
         width={56}
         alt={movie.title}

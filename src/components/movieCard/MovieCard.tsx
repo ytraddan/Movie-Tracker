@@ -1,11 +1,11 @@
 import { IMAGE_SIZES } from "@/lib/constants";
 import { Movie } from "@/lib/tmdb-types";
 import { getImageUrl } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./movieCard.module.css";
 import FavoriteButton from "./FavoriteButton";
 import RatingBadges from "./RatingBadges";
+import ImageWithFallback from "../imageWithFallback/ImageWithFallback";
 
 interface MovieCardProps {
   movie: Movie;
@@ -22,8 +22,8 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
       <RatingBadges id={movie.id} rating={rating} />
 
-      <Image
-        loading="lazy"
+      <ImageWithFallback
+        fallback="/poster-fallback.png"
         alt={movie.title}
         src={posterUrl}
         width={240}

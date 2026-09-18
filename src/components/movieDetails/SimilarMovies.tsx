@@ -4,18 +4,18 @@ import styles from "./similarMovies.module.css";
 
 interface SimlarMoviesProps {
   movieId: string;
-  similarLimit: number;
+  limit: number;
 }
 
 export default async function SimlarMovies({
   movieId,
-  similarLimit,
+  limit,
 }: SimlarMoviesProps) {
   const { results: similarMovies } = await fetchSimilarMovies(movieId);
 
-  const visibleSimilarMovies = similarMovies.slice(0, similarLimit);
+  const visibleMovies = similarMovies.slice(0, limit);
 
-  if (visibleSimilarMovies.length == 0) {
+  if (visibleMovies.length == 0) {
     return null;
   }
 
@@ -23,7 +23,7 @@ export default async function SimlarMovies({
     <section className={styles.similar}>
       <h2 className={styles.similarTitle}>Similar Movies</h2>
       <ul className={styles.similarList}>
-        {visibleSimilarMovies.map((movie) => (
+        {visibleMovies.map((movie) => (
           <li key={movie.id}>
             <MovieCard movie={movie} />
           </li>

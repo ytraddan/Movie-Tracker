@@ -24,7 +24,7 @@ export default async function MoviePage({ params }: MoviePageProps) {
     <>
       <MovieDetails movie={movie} castLimit={CAST_LIMIT} />
       <Suspense fallback={<SimilarMoviesSkeleton itemsCount={SIMLAR_LIMIT} />}>
-        <SimlarMovies movieId={id} similarLimit={SIMLAR_LIMIT} />
+        <SimlarMovies movieId={id} limit={SIMLAR_LIMIT} />
       </Suspense>
     </>
   );

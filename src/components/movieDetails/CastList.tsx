@@ -1,16 +1,16 @@
 import { IMAGE_SIZES } from "@/lib/constants";
-import Image from "next/image";
 import styles from "./castList.module.css";
 import { getImageUrl } from "@/lib/utils";
 import { CastMember } from "@/lib/tmdb-types";
+import ImageWithFallback from "../imageWithFallback/ImageWithFallback";
 
 interface CastListProps {
   cast: CastMember[];
-  castLimit: number;
+  limit: number;
 }
 
-export default function CastList({ cast, castLimit }: CastListProps) {
-  const visibleCast = cast.slice(0, castLimit);
+export default function CastList({ cast, limit }: CastListProps) {
+  const visibleCast = cast.slice(0, limit);
 
   if (visibleCast.length === 0) {
     return null;
@@ -22,11 +22,12 @@ export default function CastList({ cast, castLimit }: CastListProps) {
       <ul className={styles.castList}>
         {visibleCast.map((member) => (
           <li className={styles.castMember} key={member.id}>
-            <Image
+            <ImageWithFallback
               src={getImageUrl(
                 member.profile_path,
                 IMAGE_SIZES.profile.original,
               )}
+              fallback="/actor-fallback.png"
               className={styles.castMemberImage}
               height={170}
               width={170}

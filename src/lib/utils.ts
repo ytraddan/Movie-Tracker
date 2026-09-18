@@ -1,6 +1,10 @@
 import { COLLECTION_TABS, HOME_TABS, TMDB_IMAGE_BASE_URL } from "./constants";
 
-export function getImageUrl(path: string, size: string) {
+export function getImageUrl(path: string | null, size: string) {
+  if (!path) {
+    return null;
+  }
+
   return `${TMDB_IMAGE_BASE_URL}/${size}${path}`;
 }
 
