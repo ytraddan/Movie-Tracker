@@ -15,7 +15,7 @@ export default async function CollectionPage({ searchParams }: CollectionPage) {
 
   return (
     <section className={styles.wrapper}>
-      <BackgroundImage path="/collection-background.png" />
+      <BackgroundImage path="/background.png" />
       <CollectionTabs activeTab={id} />
       <CollectionList tab={id} emptyMessage={emptyMessage} />
     </section>
