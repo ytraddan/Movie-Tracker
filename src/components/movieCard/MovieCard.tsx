@@ -1,11 +1,11 @@
 import { IMAGE_SIZES } from "@/lib/constants";
 import { Movie } from "@/lib/tmdb-types";
-import { StarIcon } from "@heroicons/react/16/solid";
 import { getImageUrl } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./movieCard.module.css";
-import FavoriteButton from "../favoriteButton/FavoriteButton";
+import FavoriteButton from "./FavoriteButton";
+import RatingBadges from "./RatingBadges";
 
 interface MovieCardProps {
   movie: Movie;
@@ -20,10 +20,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
     <Link href={`/movie/${movie.id}`} className={styles.movieCard}>
       <FavoriteButton movie={movie} />
 
-      <div className={styles.ratingBadge}>
-        <StarIcon className={styles.ratingIcon} />
-        <span className={styles.ratingNumber}>{rating}</span>
-      </div>
+      <RatingBadges id={movie.id} rating={rating} />
 
       <Image
         loading="lazy"

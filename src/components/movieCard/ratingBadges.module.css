@@ -1,0 +1,38 @@
+.badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  right: 0;
+}
+
+.ratingBadge {
+  display: flex;
+  width: max-content;
+  gap: var(--space-1);
+  align-items: center;
+  margin-top: var(--space-2);
+  margin-right: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-transparent);
+}
+
+.ratingIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-rating);
+}
+
+.ratingNumber {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  padding-right: var(--space-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.userRatingIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-watched);
+}

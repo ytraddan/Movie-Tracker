@@ -26,30 +26,6 @@
   transition: border-color 0.2s ease;
 }
 
-.ratingBadge {
-  display: flex;
-  position: absolute;
-  right: 0;
-  gap: var(--space-1);
-  align-items: center;
-  margin: var(--space-2);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-lg);
-  background-color: var(--color-bg-transparent);
-}
-
-.ratingIcon {
-  width: 18px;
-  height: 18px;
-  color: var(--color-rating);
-}
-
-.ratingNumber {
-  color: var(--color-text);
-  font-size: var(--font-size-sm);
-  padding-right: var(--space-1);
-}
-
 .description {
   display: flex;
   flex-direction: column;

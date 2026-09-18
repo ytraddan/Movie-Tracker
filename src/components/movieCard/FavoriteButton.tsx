@@ -22,7 +22,7 @@ export default function FavoriteButton({ movie }: FavoriteButtonProps) {
   if (!isHydrated) {
     return (
       <button type="button" className={styles.button}>
-        <div className={styles.icon} />
+        <HeartIconOutline className={styles.icon} />
       </button>
     );
   }

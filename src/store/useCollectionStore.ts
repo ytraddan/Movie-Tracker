@@ -17,7 +17,7 @@ interface CollectionState {
 
   toggleFavorite: (movie: Movie) => void;
   toggleWatchLater: (movie: Movie) => void;
-  markAsWatched: (movie: Movie, rating: number) => void;
+  markAsWatched: (movie: Movie, rating?: number) => void;
   unmarkWatched: (id: number) => void;
   setRating: (id: number, rating: number) => void;
 
@@ -49,7 +49,7 @@ export const useCollectionStore = create<CollectionState>()(
           return { watchLater: next };
         }),
 
-      markAsWatched: (movie, rating) =>
+      markAsWatched: (movie, rating = 0) =>
         set((state) => ({
           watched: {
             ...state.watched,

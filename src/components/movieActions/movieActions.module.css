@@ -1,12 +1,13 @@
 .movieActions {
   display: flex;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
+.buttons {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
 }
 
 .button {
@@ -28,6 +29,11 @@
     border-color 0.2s ease,
     color 0.2s ease,
     background-color 0.2s ease;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
 .button:hover {
@@ -68,4 +74,30 @@
   color: var(--color-watched);
   border-color: var(--color-watched);
   background-color: var(--color-bg-watched);
+}
+
+.ratingButtons {
+  display: flex;
+}
+
+.starButton {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  transition: background-color 0.2s ease;
+}
+
+.starButton:hover {
+  background-color: var(--color-bg-watched);
+}
+
+.starIcon {
+  color: var(--color-watched);
+  padding: var(--space-1);
 }
