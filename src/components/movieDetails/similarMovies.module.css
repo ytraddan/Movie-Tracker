@@ -22,7 +22,7 @@
 }
 
 .similarList::-webkit-scrollbar-thumb {
-  background: var(--color-text);
+  background: var(--color-text-muted);
   border-radius: 2px;
 }
 
