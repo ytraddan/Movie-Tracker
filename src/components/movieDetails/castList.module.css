@@ -10,6 +10,7 @@
   list-style: none;
   gap: var(--space-8);
   padding-bottom: var(--space-4);
+  border-radius: var(--radius-xl);
 }
 
 .castTitle {

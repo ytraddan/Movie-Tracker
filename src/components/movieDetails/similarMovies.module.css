@@ -4,6 +4,28 @@
   gap: var(--space-4);
 }
 
+.similarList {
+  display: flex;
+  overflow-x: auto;
+  list-style: none;
+  gap: var(--space-8);
+  padding-bottom: var(--space-4);
+  border-radius: var(--radius-xl);
+}
+
 .similarTitle {
   font-weight: var(--font-weight-medium);
+}
+
+.similarList::-webkit-scrollbar {
+  height: 4px;
+}
+
+.similarList::-webkit-scrollbar-thumb {
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.similarList::-webkit-scrollbar-track {
+  background: transparent;
 }

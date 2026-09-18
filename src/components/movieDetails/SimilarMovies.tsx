@@ -1,6 +1,6 @@
-import MovieGrid from "@/components/movieGrid/MovieGrid";
-import styles from "./similarMovies.module.css";
 import { fetchSimilarMovies } from "@/lib/tmdb";
+import MovieCard from "../movieCard/MovieCard";
+import styles from "./similarMovies.module.css";
 
 interface SimlarMoviesProps {
   movieId: string;
@@ -22,7 +22,13 @@ export default async function SimlarMovies({
   return (
     <section className={styles.similar}>
       <h2 className={styles.similarTitle}>Similar Movies</h2>
-      <MovieGrid movies={visibleSimilarMovies} />
+      <ul className={styles.similarList}>
+        {visibleSimilarMovies.map((movie) => (
+          <li key={movie.id}>
+            <MovieCard movie={movie} />
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

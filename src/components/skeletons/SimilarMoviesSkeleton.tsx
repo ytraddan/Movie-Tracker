@@ -10,7 +10,7 @@ export function SimilarMoviesSkeleton({
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>Similar Movies</h2>
-      <div className={styles.grid}>
+      <div className={styles.skeletonlist}>
         {Array.from({ length: itemsCount }).map((_, index) => (
           <div key={index} className={styles.skeletonCard} />
         ))}
