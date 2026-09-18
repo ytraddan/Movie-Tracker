@@ -1,6 +1,6 @@
 .wrapper {
   position: absolute;
-  top: var(--space-14);
+  top: var(--space-12);
   width: 100%;
   max-width: var(--search-max-width);
   max-height: var(--dropdown-max-height);

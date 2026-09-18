@@ -1,6 +1,6 @@
 .tabList {
   position: sticky;
-  z-index: var(--z-header);
+  z-index: var(--z-tablist);
   top: var(--header-height);
   display: flex;
   align-items: center;
