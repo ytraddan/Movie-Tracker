@@ -2,7 +2,12 @@ import Link from "next/link";
 import { Movie } from "@/lib/tmdb-types";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { IMAGE_SIZES } from "@/lib/constants";
-import { getImageUrl } from "@/lib/utils";
+import {
+  getImageUrl,
+  getOverview,
+  getRating,
+  getReleaseYear,
+} from "@/lib/utils";
 import styles from "./searchResultItem.module.css";
 import ImageWithFallback from "../imageWithFallback/ImageWithFallback";
 
@@ -12,8 +17,9 @@ interface SearchResultItem {
 
 export default function SearchResultItem({ movie }: SearchResultItem) {
   const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.sm);
-  const releaseYear = movie.release_date.split("-")[0];
-  const rating = movie.vote_average.toFixed(1);
+  const releaseYear = getReleaseYear(movie.release_date);
+  const rating = getRating(movie.vote_average);
+  const overview = getOverview(movie.overview);
 
   return (
     <Link className={styles.movie} href={`/movie/${movie.id}`}>
@@ -35,7 +41,7 @@ export default function SearchResultItem({ movie }: SearchResultItem) {
           {"·"}
           <span className={styles.releaseDate}>{releaseYear}</span>
         </div>
-        <p className={styles.overview}>{movie.overview}</p>
+        <p className={styles.overview}>{overview}</p>
       </div>
     </Link>
   );

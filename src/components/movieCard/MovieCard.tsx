@@ -1,6 +1,6 @@
 import { IMAGE_SIZES } from "@/lib/constants";
 import { Movie } from "@/lib/tmdb-types";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl, getRating, getReleaseYear } from "@/lib/utils";
 import Link from "next/link";
 import styles from "./movieCard.module.css";
 import FavoriteButton from "./FavoriteButton";
@@ -13,8 +13,8 @@ interface MovieCardProps {
 
 export default function MovieCard({ movie }: MovieCardProps) {
   const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.lg);
-  const releaseYear = movie.release_date.split("-")[0];
-  const rating = movie.vote_average.toFixed(1);
+  const releaseYear = getReleaseYear(movie.release_date);
+  const rating = getRating(movie.vote_average);
 
   return (
     <Link href={`/movie/${movie.id}`} className={styles.movieCard}>

@@ -8,16 +8,18 @@ export interface PaginatedResponse<T> {
 export interface Movie {
   id: number;
   title: string;
-  overview: string;
-  poster_path: string | null;
-  backdrop_path: string | null;
-  release_date: string;
-  vote_average: number;
-  vote_count: number;
+  overview?: string;
+  poster_path?: string | null;
+  backdrop_path?: string | null;
+  release_date?: string;
+  vote_average?: number;
+  vote_count?: number;
 }
 
-export interface MovieWithOverview extends Movie {
-  overview: string;
+export interface MovieDetails extends Movie {
+  runtime?: number;
+  genres: Genre[];
+  credits: Credits;
 }
 
 export interface Genre {
@@ -37,12 +39,4 @@ export interface CastMember {
   order: number;
 }
 
-export interface MovieDetails extends Movie {
-  runtime: number;
-  genres: Genre[];
-  credits: Credits;
-}
-
 export type PaginatedMovies = PaginatedResponse<Movie>;
-
-export type PaginatedMoviesWithOverview = PaginatedResponse<MovieWithOverview>;

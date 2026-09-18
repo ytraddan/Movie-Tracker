@@ -1,6 +1,6 @@
 import { IMAGE_SIZES } from "@/lib/constants";
 import { type MovieDetails } from "@/lib/tmdb-types";
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl, getOverview } from "@/lib/utils";
 import styles from "./movieDetails.module.css";
 import MovieMeta from "./MovieMeta";
 import MovieActions from "../movieActions/MovieActions";
@@ -17,6 +17,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
     movie.backdrop_path,
     IMAGE_SIZES.backdrop.original,
   );
+  const overview = getOverview(movie.overview);
 
   return (
     <div className={styles.hero}>
@@ -53,7 +54,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
             <MovieActions movie={movie} />
             <section className={styles.overview}>
               <h2 className={styles.overviewTitle}>Overview</h2>
-              <p className={styles.overviewText}>{movie.overview}</p>
+              <p className={styles.overviewText}>{overview}</p>
             </section>
           </div>
         </div>
