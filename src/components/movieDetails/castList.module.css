@@ -33,7 +33,7 @@
 }
 
 .castList::-webkit-scrollbar {
-  height: 6px;
+  height: 4px;
 }
 
 .castList::-webkit-scrollbar-thumb {

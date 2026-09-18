@@ -24,8 +24,9 @@ export default function Tabs<T extends string>({
           className={`${styles.tab} ${tab.id == activeTab ? styles.active : ""}`}
           href={`${basePath}?tab=${tab.id}`}
           key={tab.id}
+          scroll={false}
         >
-          {tab.label}
+          <span>{tab.label}</span>
         </Link>
       ))}
     </nav>
