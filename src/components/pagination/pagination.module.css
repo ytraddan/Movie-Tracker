@@ -30,7 +30,7 @@
 .button:hover {
   color: var(--color-accent-hover);
   border-color: var(--color-accent);
-  background-color: var(--color-accent-surface);
+  background-color: var(--color-accent-dark);
 }
 
 .button[aria-disabled="true"] {
