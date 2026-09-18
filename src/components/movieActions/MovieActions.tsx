@@ -95,9 +95,10 @@ export default function MovieActions({ movie }: MovieActionsProps) {
           <span>Watched</span>
         </button>
       </div>
-      <div className={styles.ratingButtons}>
-        {isWatched &&
-          Array.from({ length: 10 }).map((_, index) => {
+
+      {isWatched && (
+        <div className={styles.ratingButtons}>
+          {Array.from({ length: 10 }).map((_, index) => {
             return (
               <button
                 key={index}
@@ -113,7 +114,8 @@ export default function MovieActions({ movie }: MovieActionsProps) {
               </button>
             );
           })}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
