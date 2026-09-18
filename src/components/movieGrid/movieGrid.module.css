@@ -1,7 +1,8 @@
 .movieGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 240px);
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fill, 240px);
   justify-content: space-between;
+  column-gap: var(--space-8);
+  row-gap: var(--space-4);
   list-style-type: none;
 }
