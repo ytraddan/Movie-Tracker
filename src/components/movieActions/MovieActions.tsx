@@ -109,7 +109,9 @@ export default function MovieActions({ movie }: MovieActionsProps) {
                 {index >= watched[movie.id].rating ? (
                   <StarIconOutline className={styles.starIcon} />
                 ) : (
-                  <StarIconSolid className={styles.starIcon} />
+                  <StarIconSolid
+                    className={`${styles.starIcon} ${styles.solid}`}
+                  />
                 )}
               </button>
             );

@@ -101,3 +101,7 @@
   color: var(--color-watched);
   padding: var(--space-1);
 }
+
+.starIcon.solid {
+  stroke: var(--color-bg);
+}
