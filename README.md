@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Tracker
 
-## Getting Started
+A small movie tracking app built with Next.js, TypeScript and the TMDB API. You can browse different categories of movies, search in real time, open a movie page with detailed description, and save it into your personal collection with selected rating — stored locally in the browser.
 
-First, run the development server:
+Built as a portfolio project to practice combining server and client components to notice the differences in data fetching and user state management on the server as well as on the client respectively using Next.js, Zustand, and TanStack Query.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- Home page with 3 tabs : popular, top rated, upcoming and pagination
+- Debounced live search with results in a dropdown
+- Movie details page: dynamic route with additional inforamtion (overview, genres, cast, similar movies, etc.)
+- Personal collection: favorited movies with user rating (saved in local storage using Zustand)
+- Fallbacks for missing images, loading skeletons
+
+## Stack
+
+Next.js 16 · React 19 · TypeScript · CSS Modules · Zustand · TanStack Query · TMDB API
+
+## Structure
+
+```
+src/app          routes (home, /movie/[id], /collection, /api/search)
+src/components    UI components
+src/hooks         custom hooks
+src/lib           TMDB client, types, constants, helpers
+src/store         Zustand store for saved movies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to run locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Add a `.env.local` file with your own api key:
 
-## Learn More
+```
+TMDB_API_READ_ACCESS_TOKEN=your_token
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the dev server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm dev
+```
