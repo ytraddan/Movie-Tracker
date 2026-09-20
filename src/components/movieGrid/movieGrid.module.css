@@ -1,6 +1,6 @@
 .movieGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-columns: repeat(auto-fill, var(--movie-card-width));
   justify-content: space-between;
   column-gap: var(--space-8);
   row-gap: var(--space-4);
