@@ -24,7 +24,8 @@
 
 .starIcon {
   color: var(--color-rating);
-  height: 24;
+  height: 24px;
+  width: 24px;
 }
 
 .ratingNumber {
