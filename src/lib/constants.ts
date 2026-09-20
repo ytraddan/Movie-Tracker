@@ -8,6 +8,7 @@ import { ComponentType, SVGProps } from "react";
 export const TMDB_AUTH_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN;
 export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
+export const TMDB_MAX_PAGE = 500;
 
 export type HomeTab = "popular" | "top_rated" | "upcoming";
 export type CollectionTab = "favorites" | "watchLater" | "watched";

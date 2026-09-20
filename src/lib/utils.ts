@@ -1,4 +1,17 @@
-import { COLLECTION_TABS, HOME_TABS, TMDB_IMAGE_BASE_URL } from "./constants";
+import {
+  COLLECTION_TABS,
+  HOME_TABS,
+  TMDB_IMAGE_BASE_URL,
+  TMDB_MAX_PAGE,
+} from "./constants";
+
+export function getCurrentPage(page: string | undefined) {
+  const requestedPage = Number(page);
+  if (!Number.isInteger(requestedPage) || requestedPage <= 0) {
+    return 1;
+  }
+  return Math.min(requestedPage, TMDB_MAX_PAGE);
+}
 
 export function getCollectionTab(id: string | undefined) {
   return COLLECTION_TABS.find((t) => t.id === id) ?? COLLECTION_TABS[0];

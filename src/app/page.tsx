@@ -1,6 +1,6 @@
-import { getHomeTabId } from "@/lib/utils";
+import { getCurrentPage, getHomeTabId } from "@/lib/utils";
 import { fetchMovies } from "@/lib/tmdb";
-import { HOME_TABS } from "@/lib/constants";
+import { HOME_TABS, TMDB_MAX_PAGE } from "@/lib/constants";
 import Pagination from "@/components/pagination/Pagination";
 import MovieGrid from "@/components/movieGrid/MovieGrid";
 import Tabs from "@/components/tabs/Tabs";
@@ -14,22 +14,19 @@ interface HomePageProps {
 export default async function HomePage({ searchParams }: HomePageProps) {
   const { page, tab } = await searchParams;
 
-  const currentPage = Number(page) || 1;
+  const currentPage = getCurrentPage(page);
   const activeTab = getHomeTabId(tab);
 
-  const { results: movies, total_pages } = await fetchMovies(
-    activeTab,
-    currentPage,
-  );
+  const { results, total_pages } = await fetchMovies(activeTab, currentPage);
 
   return (
     <section className={styles.homePage}>
       <BackgroundImage path="/home-background.png" />
       <Tabs tabs={HOME_TABS} activeTab={activeTab} basePath="/" />
-      <MovieGrid movies={movies} />
+      <MovieGrid movies={results} />
       <Pagination
         currentPage={currentPage}
-        totalPages={total_pages}
+        totalPages={Math.min(total_pages, TMDB_MAX_PAGE)}
         activeTab={activeTab}
       />
     </section>
