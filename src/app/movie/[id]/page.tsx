@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import styles from "./page.module.css";
 
 interface MoviePageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const SIMLAR_LIMIT = 15;
