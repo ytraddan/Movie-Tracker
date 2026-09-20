@@ -5,15 +5,12 @@ export async function fetchMovies(
   category: HomeTab,
   page: number,
 ): Promise<PaginatedMovies> {
-  const res = await fetch(
-    `${TMDB_BASE_URL}/movie/${category}?language=en-US&page=${page}`,
-    {
-      headers: {
-        Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
-      },
-      next: { revalidate: 60 * 60 },
+  const res = await fetch(`${TMDB_BASE_URL}/movie/${category}?page=${page}`, {
+    headers: {
+      Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
     },
-  );
+    next: { revalidate: 60 * 60 },
+  });
 
   if (!res.ok) {
     throw new Error(`TMDB fetchMovies failed: ${res.status}`);
@@ -64,12 +61,15 @@ export async function fetchSimilarMovies(id: string): Promise<PaginatedMovies> {
 export async function fetchMoviesByQuery(
   query: string,
 ): Promise<PaginatedMovies> {
-  const res = await fetch(`${TMDB_BASE_URL}/search/movie?query=${query}`, {
-    headers: {
-      Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
+  const res = await fetch(
+    `${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`,
+    {
+      headers: {
+        Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
+      },
+      next: { revalidate: 60 * 5 },
     },
-    next: { revalidate: 60 * 5 },
-  });
+  );
 
   if (!res.ok) {
     throw new Error(`TMDB fetchMoviesByQuery failed: ${res.status}`);
