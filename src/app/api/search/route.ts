@@ -12,10 +12,12 @@ export async function GET(req: NextRequest) {
       total_results: 0,
     });
   }
+
   try {
     const data = await fetchMoviesByQuery(query);
     return NextResponse.json(data);
-  } catch {
+  } catch (error) {
+    console.error(`Search failed for query "${query}":`, error);
     return NextResponse.json({ message: "Search failed" }, { status: 500 });
   }
 }
