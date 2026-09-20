@@ -1,14 +1,21 @@
 import { HomeTab, TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
 import { MovieDetails, PaginatedMovies } from "./tmdb-types";
 
+function getAuthHeaders() {
+  if (!TMDB_AUTH_TOKEN) {
+    throw new Error("TMDB_API_READ_ACCESS_TOKEN is not set in .env");
+  }
+  return {
+    Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
+  };
+}
+
 export async function fetchMovies(
   category: HomeTab,
   page: number,
 ): Promise<PaginatedMovies> {
   const res = await fetch(`${TMDB_BASE_URL}/movie/${category}?page=${page}`, {
-    headers: {
-      Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
-    },
+    headers: getAuthHeaders(),
     next: { revalidate: 60 * 60 },
   });
 
@@ -25,9 +32,7 @@ export async function fetchMovieDetails(
   const res = await fetch(
     `${TMDB_BASE_URL}/movie/${id}?append_to_response=credits`,
     {
-      headers: {
-        Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
-      },
+      headers: getAuthHeaders(),
       next: { revalidate: 60 * 60 * 24 },
     },
   );
@@ -45,9 +50,7 @@ export async function fetchMovieDetails(
 
 export async function fetchSimilarMovies(id: string): Promise<PaginatedMovies> {
   const res = await fetch(`${TMDB_BASE_URL}/movie/${id}/similar`, {
-    headers: {
-      Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
-    },
+    headers: getAuthHeaders(),
     next: { revalidate: 60 * 60 * 24 },
   });
 
@@ -64,9 +67,7 @@ export async function fetchMoviesByQuery(
   const res = await fetch(
     `${TMDB_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`,
     {
-      headers: {
-        Authorization: `Bearer ${TMDB_AUTH_TOKEN}`,
-      },
+      headers: getAuthHeaders(),
       next: { revalidate: 60 * 5 },
     },
   );
