@@ -22,22 +22,18 @@ export default function MovieActions({ movie }: MovieActionsProps) {
   const isWatchLater = useCollectionStore((s) => s.isWatchLater(movie.id));
   const isWatched = useCollectionStore((s) => s.isWatched(movie.id));
 
-  const watched = useCollectionStore((s) => s.watched);
-
   const toggleFavorite = useCollectionStore((s) => s.toggleFavorite);
   const toggleWatchLater = useCollectionStore((s) => s.toggleWatchLater);
   const markAsWatched = useCollectionStore((s) => s.markAsWatched);
   const unmarkWatched = useCollectionStore((s) => s.unmarkWatched);
+
+  const userRating = useCollectionStore((s) => s.watched[movie.id]?.rating);
   const setRating = useCollectionStore((s) => s.setRating);
 
   const [hydrated, setHydrated] = useState(false);
 
-  useEffect(
-    () =>
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setHydrated(true),
-    [],
-  );
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setHydrated(true), []);
 
   if (!hydrated) {
     return (
@@ -106,12 +102,12 @@ export default function MovieActions({ movie }: MovieActionsProps) {
                 onClick={() => setRating(movie.id, index + 1)}
                 className={styles.starButton}
               >
-                {index >= watched[movie.id].rating ? (
-                  <StarIconOutline className={styles.starIcon} />
-                ) : (
+                {index < userRating ? (
                   <StarIconSolid
                     className={`${styles.starIcon} ${styles.solid}`}
                   />
+                ) : (
+                  <StarIconOutline className={styles.starIcon} />
                 )}
               </button>
             );

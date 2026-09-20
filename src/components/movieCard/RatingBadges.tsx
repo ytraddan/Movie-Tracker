@@ -10,7 +10,7 @@ interface RatingBadgesProps {
 }
 
 export default function RatingBadges({ id, rating }: RatingBadgesProps) {
-  const userRating = useCollectionStore((s) => s.watched)[id]?.rating;
+  const userRating = useCollectionStore((s) => s.watched[id]?.rating);
 
   return (
     <div className={styles.badges}>
