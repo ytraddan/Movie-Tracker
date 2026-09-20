@@ -1,15 +1,20 @@
 .notFound {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-block: auto;
-  height: 70vh;
-  flex-direction: column;
   gap: var(--space-2);
+  height: 50vh;
 }
 
 .title {
   font-family: var(--font-secondary);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xl);
+}
+
+.message {
+  font-family: var(--font-secondary);
   color: var(--color-text-muted);
+  max-width: var(--text-max-width);
 }
