@@ -12,7 +12,7 @@
 .header {
   width: 100%;
   max-width: var(--content-max-width);
-  padding-inline: var(--space-20);
+  padding-inline: var(--space-32);
   display: grid;
   grid-template-columns: 1fr minmax(0, var(--search-max-width)) 1fr;
   align-items: center;
