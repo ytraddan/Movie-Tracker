@@ -26,9 +26,9 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    background-color 0.2s ease;
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .icon {
@@ -90,7 +90,7 @@
   cursor: pointer;
   height: 40px;
   width: 40px;
-  transition: background-color 0.2s ease;
+  transition: background-color var(--transition-fast);
 }
 
 .starButton:hover {

@@ -41,6 +41,8 @@
   --z-header: 10;
   --z-modal: 100;
 
+  --transition-fast: 0.2s ease;
+
   --gray-0: #ffffff;
   --gray-50: #f4f3f0;
   --gray-100: #e8e6e1;
