@@ -1,6 +1,6 @@
 import CastList from "@/components/movieDetails/CastList";
 import MovieDetails from "@/components/movieDetails/MovieDetails";
-import SimlarMovies from "@/components/movieDetails/SimilarMovies";
+import SimilarMovies from "@/components/movieDetails/SimilarMovies";
 import { SimilarMoviesSkeleton } from "@/components/skeletons/SimilarMoviesSkeleton";
 import { fetchMovieDetails } from "@/lib/tmdb";
 import { notFound } from "next/navigation";
@@ -11,7 +11,7 @@ interface MoviePageProps {
   params: Promise<{ id: string }>;
 }
 
-const SIMLAR_LIMIT = 15;
+const SIMILAR_LIMIT = 15;
 const CAST_LIMIT = 15;
 
 export default async function MoviePage({ params }: MoviePageProps) {
@@ -29,8 +29,8 @@ export default async function MoviePage({ params }: MoviePageProps) {
         <CastList cast={movie.credits.cast} limit={CAST_LIMIT} />
       </div>
 
-      <Suspense fallback={<SimilarMoviesSkeleton itemsCount={SIMLAR_LIMIT} />}>
-        <SimlarMovies movieId={id} limit={SIMLAR_LIMIT} />
+      <Suspense fallback={<SimilarMoviesSkeleton itemsCount={SIMILAR_LIMIT} />}>
+        <SimilarMovies movieId={id} limit={SIMILAR_LIMIT} />
       </Suspense>
     </article>
   );

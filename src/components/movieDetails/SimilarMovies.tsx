@@ -2,15 +2,15 @@ import { fetchSimilarMovies } from "@/lib/tmdb";
 import MovieCard from "../movieCard/MovieCard";
 import styles from "./similarMovies.module.css";
 
-interface SimlarMoviesProps {
+interface SimilarMoviesProps {
   movieId: string;
   limit: number;
 }
 
-export default async function SimlarMovies({
+export default async function SimilarMovies({
   movieId,
   limit,
-}: SimlarMoviesProps) {
+}: SimilarMoviesProps) {
   const { results: similarMovies } = await fetchSimilarMovies(movieId);
 
   const visibleMovies = similarMovies.slice(0, limit);
