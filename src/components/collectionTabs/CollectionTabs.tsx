@@ -3,8 +3,8 @@
 import { useCollectionStore } from "@/store/useCollectionStore";
 import { COLLECTION_TABS, CollectionTab } from "@/lib/constants";
 import Tabs from "@/components/tabs/Tabs";
-import { useEffect, useState } from "react";
 import { useShallow } from "zustand/shallow";
+import useHydrated from "@/hooks/useHydrated";
 
 interface CollectionTabsProps {
   activeTab: CollectionTab;
@@ -15,16 +15,13 @@ export default function CollectionTabs({
   activeTab,
   basePath,
 }: CollectionTabsProps) {
-  const [hydrated, setHydrated] = useState(false);
-
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setHydrated(true), []);
+  const isHydrated = useHydrated();
 
   const counts = useCollectionStore(
     useShallow((s) => ({
-      favorites: hydrated ? Object.keys(s.favorites).length : "",
-      watchLater: hydrated ? Object.keys(s.watchLater).length : "",
-      watched: hydrated ? Object.keys(s.watched).length : "",
+      favorites: isHydrated ? Object.keys(s.favorites).length : "",
+      watchLater: isHydrated ? Object.keys(s.watchLater).length : "",
+      watched: isHydrated ? Object.keys(s.watched).length : "",
     })),
   );
 

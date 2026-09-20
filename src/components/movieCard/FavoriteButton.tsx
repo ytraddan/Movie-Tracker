@@ -3,7 +3,7 @@
 import { useCollectionStore } from "@/store/useCollectionStore";
 import { HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
+import useHydrated from "@/hooks/useHydrated";
 import { Movie } from "@/lib/tmdb-types";
 import styles from "./favoriteButton.module.css";
 
@@ -14,10 +14,7 @@ interface FavoriteButtonProps {
 export default function FavoriteButton({ movie }: FavoriteButtonProps) {
   const isFavorite = useCollectionStore((s) => s.isFavorite(movie.id));
   const toggleFavorite = useCollectionStore((s) => s.toggleFavorite);
-  const [isHydrated, setIsHydrated] = useState(false);
-
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setIsHydrated(true), []);
+  const isHydrated = useHydrated();
 
   if (!isHydrated) {
     return (

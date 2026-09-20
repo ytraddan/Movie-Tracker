@@ -3,8 +3,9 @@
 import MovieGrid from "@/components/movieGrid/MovieGrid";
 import { CollectionTab } from "@/lib/constants";
 import { useCollectionStore } from "@/store/useCollectionStore";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import styles from "./collectionList.module.css";
+import useHydrated from "@/hooks/useHydrated";
 
 interface CollectionListProps {
   tab: CollectionTab;
@@ -15,7 +16,7 @@ export default function CollectionList({
   tab,
   emptyMessage,
 }: CollectionListProps) {
-  const [hydrated, setHydrated] = useState(false);
+  const isHydrated = useHydrated();
 
   const items = useCollectionStore((s) => s[tab]);
 
@@ -24,10 +25,7 @@ export default function CollectionList({
     [items],
   );
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setHydrated(true), []);
-
-  if (!hydrated) {
+  if (!isHydrated) {
     return null;
   }
 

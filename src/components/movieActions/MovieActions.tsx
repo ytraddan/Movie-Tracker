@@ -11,13 +11,15 @@ import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { ClockIcon as ClockIconSolid } from "@heroicons/react/24/solid";
 import { CheckCircleIcon as CheckCircleIconSolid } from "@heroicons/react/24/solid";
 import { Movie } from "@/lib/tmdb-types";
-import { useEffect, useState } from "react";
+import useHydrated from "@/hooks/useHydrated";
 
 interface MovieActionsProps {
   movie: Movie;
 }
 
 export default function MovieActions({ movie }: MovieActionsProps) {
+  const isHydrated = useHydrated();
+
   const isFavorite = useCollectionStore((s) => s.isFavorite(movie.id));
   const isWatchLater = useCollectionStore((s) => s.isWatchLater(movie.id));
   const isWatched = useCollectionStore((s) => s.isWatched(movie.id));
@@ -30,12 +32,7 @@ export default function MovieActions({ movie }: MovieActionsProps) {
   const userRating = useCollectionStore((s) => s.watched[movie.id]?.rating);
   const setRating = useCollectionStore((s) => s.setRating);
 
-  const [hydrated, setHydrated] = useState(false);
-
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setHydrated(true), []);
-
-  if (!hydrated) {
+  if (!isHydrated) {
     return (
       <div className={styles.buttons}>
         {Array.from({ length: 3 }).map((_, index) => (
