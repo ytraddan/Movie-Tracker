@@ -12,14 +12,13 @@ import { ClockIcon as ClockIconSolid } from "@heroicons/react/24/solid";
 import { CheckCircleIcon as CheckCircleIconSolid } from "@heroicons/react/24/solid";
 import { Movie } from "@/lib/tmdb-types";
 import useHydrated from "@/hooks/useHydrated";
+import ActionButton from "./ActionButton";
 
 interface MovieActionsProps {
   movie: Movie;
 }
 
 export default function MovieActions({ movie }: MovieActionsProps) {
-  const isHydrated = useHydrated();
-
   const isFavorite = useCollectionStore((s) => s.isFavorite(movie.id));
   const isWatchLater = useCollectionStore((s) => s.isWatchLater(movie.id));
   const isWatched = useCollectionStore((s) => s.isWatched(movie.id));
@@ -31,6 +30,8 @@ export default function MovieActions({ movie }: MovieActionsProps) {
 
   const userRating = useCollectionStore((s) => s.watched[movie.id]?.rating);
   const setRating = useCollectionStore((s) => s.setRating);
+
+  const isHydrated = useHydrated();
 
   if (!isHydrated) {
     return (
@@ -45,53 +46,37 @@ export default function MovieActions({ movie }: MovieActionsProps) {
   return (
     <div className={styles.movieActions}>
       <div className={styles.buttons}>
-        <button
-          type="button"
+        <ActionButton
+          variant="favorite"
+          isActive={isFavorite}
+          icon={isFavorite ? HeartIconSolid : HeartIconOutline}
+          label="Favorite"
           onClick={() => toggleFavorite(movie)}
-          className={`${styles.button} ${styles.favorite}`}
-        >
-          {isFavorite ? (
-            <HeartIconSolid className={`${styles.icon} ${styles.solid}`} />
-          ) : (
-            <HeartIconOutline className={styles.icon} />
-          )}
-          <span>Favorite</span>
-        </button>
-
-        <button
-          type="button"
+        />
+        <ActionButton
+          variant="watchlist"
+          isActive={isWatchLater}
+          icon={isWatchLater ? ClockIconSolid : ClockIconOutline}
+          label="Watch Later"
           onClick={() => toggleWatchLater(movie)}
-          className={`${styles.button} ${styles.watchlist}`}
-        >
-          {isWatchLater ? (
-            <ClockIconSolid className={`${styles.icon} ${styles.solid}`} />
-          ) : (
-            <ClockIconOutline className={styles.icon} />
-          )}
-          <span>Watch Later</span>
-        </button>
-
-        <button
-          type="button"
+        />
+        <ActionButton
+          variant="watched"
+          isActive={isWatched}
+          icon={isWatched ? CheckCircleIconSolid : CheckCircleIconOutline}
+          label="Watched"
           onClick={() =>
             isWatched ? unmarkWatched(movie.id) : markAsWatched(movie)
           }
-          className={`${styles.button} ${styles.watched}`}
-        >
-          {isWatched ? (
-            <CheckCircleIconSolid
-              className={`${styles.icon} ${styles.solid}`}
-            />
-          ) : (
-            <CheckCircleIconOutline className={styles.icon} />
-          )}
-          <span>Watched</span>
-        </button>
+        />
       </div>
 
       {isWatched && (
         <div className={styles.ratingButtons}>
           {Array.from({ length: 10 }).map((_, index) => {
+            const isActive = index < userRating;
+            const Icon = isActive ? StarIconSolid : StarIconOutline;
+
             return (
               <button
                 key={index}
@@ -99,13 +84,9 @@ export default function MovieActions({ movie }: MovieActionsProps) {
                 onClick={() => setRating(movie.id, index + 1)}
                 className={styles.starButton}
               >
-                {index < userRating ? (
-                  <StarIconSolid
-                    className={`${styles.starIcon} ${styles.solid}`}
-                  />
-                ) : (
-                  <StarIconOutline className={styles.starIcon} />
-                )}
+                <Icon
+                  className={`${styles.starIcon} ${isActive ? styles.solid : ""}`}
+                />
               </button>
             );
           })}

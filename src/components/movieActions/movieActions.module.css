@@ -10,38 +10,6 @@
   gap: var(--space-2);
 }
 
-.button {
-  composes: base from "@/styles/button.module.css";
-  gap: var(--space-1);
-  background-color: var(--color-bg-overlay);
-  width: 8rem;
-  height: 2.5rem;
-}
-
-.button:has(.solid) {
-  color: var(--btn-color);
-  border-color: var(--btn-color);
-  background-color: var(--btn-bg);
-}
-
-.favorite {
-  --btn-color: var(--color-favorite);
-  --btn-bg: var(--color-bg-favorite);
-}
-.watchlist {
-  --btn-color: var(--color-watchlist);
-  --btn-bg: var(--color-bg-watchlist);
-}
-.watched {
-  --btn-color: var(--color-watched);
-  --btn-bg: var(--color-bg-watched);
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-}
-
 .ratingButtons {
   display: flex;
 }
@@ -50,13 +18,13 @@
   background-color: transparent;
   border: none;
   border-radius: 50%;
-  cursor: pointer;
   height: 40px;
   width: 40px;
   transition: background-color var(--transition-fast);
 }
 
 .starButton:hover {
+  cursor: pointer;
   background-color: var(--color-bg-watched);
 }
 
