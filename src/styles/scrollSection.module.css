@@ -1,10 +1,14 @@
-.similar {
+.scrollSection {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
-.similarList {
+.scrollSection h2 {
+  font-weight: var(--font-weight-medium);
+}
+
+.scrollSection > ul {
   display: flex;
   overflow-x: auto;
   list-style: none;
@@ -13,19 +17,15 @@
   border-radius: var(--radius-xl);
 }
 
-.similarTitle {
-  font-weight: var(--font-weight-medium);
-}
-
-.similarList::-webkit-scrollbar {
+.scrollSection > ul::-webkit-scrollbar {
   height: 4px;
 }
 
-.similarList::-webkit-scrollbar-thumb {
+.scrollSection > ul::-webkit-scrollbar-thumb {
   background: var(--color-text-muted);
   border-radius: 2px;
 }
 
-.similarList::-webkit-scrollbar-track {
+.scrollSection > ul::-webkit-scrollbar-track {
   background: transparent;
 }

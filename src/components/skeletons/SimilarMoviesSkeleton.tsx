@@ -1,4 +1,5 @@
 import styles from "./similarMoviesSkeleton.module.css";
+import scrollStyles from "@/styles/scrollSection.module.css";
 
 interface SimilarMoviesSkeletonProps {
   itemsCount: number;
@@ -8,13 +9,13 @@ export function SimilarMoviesSkeleton({
   itemsCount,
 }: SimilarMoviesSkeletonProps) {
   return (
-    <section className={styles.wrapper}>
-      <h2 className={styles.title}>Similar Movies</h2>
-      <div className={styles.skeletonlist}>
+    <section className={scrollStyles.scrollSection}>
+      <h2>Similar Movies</h2>
+      <ul>
         {Array.from({ length: itemsCount }).map((_, index) => (
-          <div key={index} className={styles.skeletonCard} />
+          <li key={index} className={styles.skeletonCard} />
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

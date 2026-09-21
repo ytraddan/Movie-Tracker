@@ -1,6 +1,6 @@
 import { fetchSimilarMovies } from "@/lib/tmdb";
 import MovieCard from "../movieCard/MovieCard";
-import styles from "./similarMovies.module.css";
+import scrollStyles from "@/styles/scrollSection.module.css";
 
 interface SimilarMoviesProps {
   movieId: string;
@@ -20,9 +20,9 @@ export default async function SimilarMovies({
   }
 
   return (
-    <section className={styles.similar}>
-      <h2 className={styles.similarTitle}>Similar Movies</h2>
-      <ul className={styles.similarList}>
+    <section className={scrollStyles.scrollSection}>
+      <h2>Similar Movies</h2>
+      <ul>
         {visibleMovies.map((movie) => (
           <li key={movie.id}>
             <MovieCard movie={movie} />

@@ -1,22 +1,3 @@
-.cast {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-
-.castList {
-  display: flex;
-  overflow-x: auto;
-  list-style: none;
-  gap: var(--space-8);
-  padding-bottom: var(--space-4);
-  border-radius: var(--radius-xl);
-}
-
-.castTitle {
-  font-weight: var(--font-weight-medium);
-}
-
 .castMember {
   display: flex;
   flex-direction: column;
@@ -31,17 +12,4 @@
 
 .castMemberCharacter {
   color: var(--color-text-muted);
-}
-
-.castList::-webkit-scrollbar {
-  height: 4px;
-}
-
-.castList::-webkit-scrollbar-thumb {
-  background: var(--color-text-muted);
-  border-radius: 2px;
-}
-
-.castList::-webkit-scrollbar-track {
-  background: transparent;
 }

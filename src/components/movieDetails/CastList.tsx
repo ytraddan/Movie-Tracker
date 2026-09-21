@@ -1,8 +1,9 @@
 import { IMAGE_SIZES } from "@/lib/constants";
-import styles from "./castList.module.css";
 import { getImageUrl } from "@/lib/utils";
 import { CastMember } from "@/lib/tmdb-types";
 import ImageWithFallback from "../imageWithFallback/ImageWithFallback";
+import scrollStyles from "@/styles/scrollSection.module.css";
+import styles from "./castList.module.css";
 
 interface CastListProps {
   cast: CastMember[];
@@ -17,9 +18,9 @@ export default function CastList({ cast, limit }: CastListProps) {
   }
 
   return (
-    <section className={styles.cast}>
-      <h2 className={styles.castTitle}>Cast</h2>
-      <ul className={styles.castList}>
+    <section className={scrollStyles.scrollSection}>
+      <h2>Cast</h2>
+      <ul>
         {visibleCast.map((member) => (
           <li className={styles.castMember} key={member.id}>
             <ImageWithFallback
@@ -33,7 +34,7 @@ export default function CastList({ cast, limit }: CastListProps) {
               width={170}
               alt={member.name}
             />
-            <span className={styles.castMemberName}>{member.name}</span>
+            <span>{member.name}</span>
             <span className={styles.castMemberCharacter}>
               {member.character}
             </span>
