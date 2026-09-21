@@ -2,33 +2,39 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  margin-top: var(--space-2);
 }
 
 .buttons {
   display: flex;
   gap: var(--space-2);
-  margin-top: var(--space-4);
 }
 
 .button {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  composes: base from "@/styles/button.module.css";
   gap: var(--space-1);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  color: var(--color-text);
   background-color: var(--color-bg-overlay);
   width: 8rem;
   height: 2.5rem;
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  transition:
-    border-color var(--transition-fast),
-    color var(--transition-fast),
-    background-color var(--transition-fast);
+}
+
+.button:has(.solid) {
+  color: var(--btn-color);
+  border-color: var(--btn-color);
+  background-color: var(--btn-bg);
+}
+
+.favorite {
+  --btn-color: var(--color-favorite);
+  --btn-bg: var(--color-bg-favorite);
+}
+.watchlist {
+  --btn-color: var(--color-watchlist);
+  --btn-bg: var(--color-bg-watchlist);
+}
+.watched {
+  --btn-color: var(--color-watched);
+  --btn-bg: var(--color-bg-watched);
 }
 
 .icon {
@@ -36,54 +42,11 @@
   height: 24px;
 }
 
-.button:hover {
-  cursor: pointer;
-}
-
-.button:hover.favorite {
-  color: var(--color-favorite);
-  border-color: var(--color-favorite);
-  background-color: var(--color-bg-favorite);
-}
-
-.button:hover.watchlist {
-  color: var(--color-watchlist);
-  border-color: var(--color-watchlist);
-  background-color: var(--color-bg-watchlist);
-}
-
-.button:hover.watched {
-  color: var(--color-watched);
-  border-color: var(--color-watched);
-  background-color: var(--color-bg-watched);
-}
-
-.button:has(.solid).favorite {
-  color: var(--color-favorite);
-  border-color: var(--color-favorite);
-  background-color: var(--color-bg-favorite);
-}
-
-.button:has(.solid).watchlist {
-  color: var(--color-watchlist);
-  border-color: var(--color-watchlist);
-  background-color: var(--color-bg-watchlist);
-}
-
-.button:has(.solid).watched {
-  color: var(--color-watched);
-  border-color: var(--color-watched);
-  background-color: var(--color-bg-watched);
-}
-
 .ratingButtons {
   display: flex;
 }
 
 .starButton {
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   background-color: transparent;
   border: none;
   border-radius: 50%;

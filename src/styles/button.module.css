@@ -1,0 +1,24 @@
+.base {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  background-color: var(--color-bg-transparent);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.base:hover {
+  cursor: pointer;
+  color: var(--btn-color, var(--color-accent));
+  border-color: var(--btn-color, var(--color-accent));
+  background-color: var(--btn-bg, var(--color-accent-dark));
+}

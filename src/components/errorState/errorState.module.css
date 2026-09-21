@@ -20,26 +20,9 @@
 }
 
 .button {
+  composes: base from "@/styles/button.module.css";
   margin-top: var(--space-4);
   height: 2.5rem;
   padding-bottom: var(--space-1);
   padding-inline: var(--space-6);
-  cursor: pointer;
-  color: var(--color-text);
-  background-color: var(--color-bg-transparent);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  transition:
-    color var(--transition-fast),
-    border-color var(--transition-fast),
-    background-color var(--transition-fast);
-}
-
-.button:hover {
-  color: var(--color-accent);
-  background-color: var(--color-accent-dark);
-  border-color: var(--color-accent);
 }
