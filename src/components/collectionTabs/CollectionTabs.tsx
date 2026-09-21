@@ -1,20 +1,17 @@
 "use client";
 
 import { useCollectionStore } from "@/store/useCollectionStore";
-import { COLLECTION_TABS, CollectionTab } from "@/lib/constants";
+import { COLLECTION_TABS } from "@/lib/constants";
 import Tabs from "@/components/tabs/Tabs";
 import { useShallow } from "zustand/shallow";
 import useHydrated from "@/hooks/useHydrated";
+import { CollectionTabId } from "@/lib/types";
 
 interface CollectionTabsProps {
-  activeTab: CollectionTab;
-  basePath: string;
+  activeTab: CollectionTabId;
 }
 
-export default function CollectionTabs({
-  activeTab,
-  basePath,
-}: CollectionTabsProps) {
+export default function CollectionTabs({ activeTab }: CollectionTabsProps) {
   const isHydrated = useHydrated();
 
   const counts = useCollectionStore(
@@ -29,7 +26,7 @@ export default function CollectionTabs({
     <Tabs
       tabs={COLLECTION_TABS}
       activeTab={activeTab}
-      basePath={basePath}
+      basePath={"/collection"}
       counts={counts}
     />
   );

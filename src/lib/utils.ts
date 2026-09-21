@@ -1,11 +1,7 @@
-import {
-  COLLECTION_TABS,
-  HOME_TABS,
-  TMDB_IMAGE_BASE_URL,
-  TMDB_MAX_PAGE,
-} from "./constants";
+import { TMDB_IMAGE_BASE_URL, TMDB_MAX_PAGE } from "./constants";
+import { Tab } from "./types";
 
-export function getCurrentPage(page: string | undefined) {
+export function getCurrentPage(page?: string) {
   const requestedPage = Number(page);
   if (!Number.isInteger(requestedPage) || requestedPage <= 0) {
     return 1;
@@ -13,12 +9,11 @@ export function getCurrentPage(page: string | undefined) {
   return Math.min(requestedPage, TMDB_MAX_PAGE);
 }
 
-export function getCollectionTab(id: string | undefined) {
-  return COLLECTION_TABS.find((t) => t.id === id) ?? COLLECTION_TABS[0];
-}
-
-export function getHomeTabId(id: string | undefined) {
-  return HOME_TABS.find((t) => t.id === id)?.id ?? HOME_TABS[0].id;
+export function getCurrentTab<T extends string>(
+  tabs: readonly Tab<T>[],
+  id?: string | null,
+) {
+  return tabs.find((t) => t.id === id) ?? tabs[0];
 }
 
 export function getImageUrl(path: string | null | undefined, size: string) {

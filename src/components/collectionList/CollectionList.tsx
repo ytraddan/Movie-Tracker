@@ -1,14 +1,14 @@
 "use client";
 
 import MovieGrid from "@/components/movieGrid/MovieGrid";
-import { CollectionTab } from "@/lib/constants";
 import { useCollectionStore } from "@/store/useCollectionStore";
+import { CollectionTabId } from "@/lib/types";
+import useHydrated from "@/hooks/useHydrated";
 import { useMemo } from "react";
 import styles from "./collectionList.module.css";
-import useHydrated from "@/hooks/useHydrated";
 
 interface CollectionListProps {
-  tab: CollectionTab;
+  tab: CollectionTabId;
   emptyMessage: string;
 }
 

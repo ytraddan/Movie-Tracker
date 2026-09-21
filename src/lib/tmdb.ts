@@ -1,5 +1,6 @@
-import { HomeTab, TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
+import { TMDB_AUTH_TOKEN, TMDB_BASE_URL } from "./constants";
 import { MovieDetails, PaginatedMovies } from "./tmdb-types";
+import { HomeTabId } from "./types";
 
 function getAuthHeaders() {
   if (!TMDB_AUTH_TOKEN) {
@@ -11,7 +12,7 @@ function getAuthHeaders() {
 }
 
 export async function fetchMovies(
-  category: HomeTab,
+  category: HomeTabId,
   page: number,
 ): Promise<PaginatedMovies> {
   const res = await fetch(`${TMDB_BASE_URL}/movie/${category}?page=${page}`, {

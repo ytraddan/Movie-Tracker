@@ -1,26 +1,13 @@
-import {
-  CheckCircleIcon,
-  ClockIcon,
-  HeartIcon,
-} from "@heroicons/react/24/outline";
-import { ComponentType, SVGProps } from "react";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { HeartIcon } from "@heroicons/react/24/outline";
+import { ClockIcon } from "@heroicons/react/24/outline";
 
 export const TMDB_AUTH_TOKEN = process.env.TMDB_API_READ_ACCESS_TOKEN;
 export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 export const TMDB_MAX_PAGE = 500;
 
-export type HomeTab = "popular" | "top_rated" | "upcoming";
-export type CollectionTab = "favorites" | "watchLater" | "watched";
-
-export interface TabConfig<T extends string> {
-  id: T;
-  label: string;
-  emptyMessage: string;
-  icon?: ComponentType<SVGProps<SVGSVGElement>>;
-}
-
-export const HOME_TABS: TabConfig<HomeTab>[] = [
+export const HOME_TABS = [
   {
     id: "popular",
     label: "Popular",
@@ -32,9 +19,9 @@ export const HOME_TABS: TabConfig<HomeTab>[] = [
     emptyMessage: "No results found",
   },
   { id: "upcoming", label: "Upcoming", emptyMessage: "No results found" },
-];
+] as const;
 
-export const COLLECTION_TABS: TabConfig<CollectionTab>[] = [
+export const COLLECTION_TABS = [
   {
     id: "favorites",
     label: "Favorites",
@@ -53,7 +40,7 @@ export const COLLECTION_TABS: TabConfig<CollectionTab>[] = [
     emptyMessage: "You haven't marked any movies as watched yet",
     icon: CheckCircleIcon,
   },
-];
+] as const;
 
 export const IMAGE_SIZES = {
   poster: {

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styles from "./tabs.module.css";
-import { TabConfig } from "@/lib/constants";
+import { Tab } from "@/lib/types";
 
 interface TabsProps<T extends string> {
-  tabs: TabConfig<T>[];
+  tabs: readonly Tab<T>[];
   activeTab: T;
   basePath: string;
   counts?: Record<T, number | string>;
