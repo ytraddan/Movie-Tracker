@@ -19,11 +19,12 @@ Next.js 16 · React 19 · TypeScript · CSS Modules · Zustand · TanStack Query
 ## Structure
 
 ```
-src/app          routes (home, /movie/[id], /collection, /api/search)
+src/app           routes: home, /movie/[id], /collection, /api/search
 src/components    UI components
 src/hooks         custom hooks
-src/lib           TMDB client, types, constants, helpers
+src/lib           TMDB requests, types, constants, helpers
 src/store         Zustand store for saved movies
+src/styles        common style rules
 ```
 
 ## How to run locally
