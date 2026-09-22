@@ -50,7 +50,7 @@ export function getRuntime(runtime: number | undefined) {
 
 export function getRating(rating: number | undefined) {
   if (!rating) {
-    return "0.0";
+    return "—";
   }
 
   return rating.toFixed(1);

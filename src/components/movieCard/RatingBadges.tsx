@@ -3,6 +3,7 @@
 import { StarIcon } from "@heroicons/react/16/solid";
 import styles from "./ratingBadges.module.css";
 import { useCollectionStore } from "@/store/useCollectionStore";
+import useHydrated from "@/hooks/useHydrated";
 
 interface RatingBadgesProps {
   rating: string;
@@ -11,15 +12,18 @@ interface RatingBadgesProps {
 
 export default function RatingBadges({ id, rating }: RatingBadgesProps) {
   const userRating = useCollectionStore((s) => s.watched[id]?.rating);
+  const isHydrated = useHydrated();
 
   return (
     <div className={styles.badges}>
-      <div className={styles.ratingBadge}>
-        <StarIcon className={styles.ratingIcon} />
-        <span className={styles.ratingNumber}>{rating}</span>
-      </div>
+      {rating !== "—" && (
+        <div className={styles.ratingBadge}>
+          <StarIcon className={styles.ratingIcon} />
+          <span className={styles.ratingNumber}>{rating}</span>
+        </div>
+      )}
 
-      {userRating > 0 && (
+      {isHydrated && userRating > 0 && (
         <div className={styles.ratingBadge}>
           <StarIcon className={styles.userRatingIcon} />
           <span className={styles.ratingNumber}>{userRating}.0</span>
