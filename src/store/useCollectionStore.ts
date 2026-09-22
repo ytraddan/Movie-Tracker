@@ -2,7 +2,10 @@ import { Movie } from "@/lib/tmdb-types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface MovieEntry extends Movie {
+interface MovieEntry extends Pick<
+  Movie,
+  "id" | "title" | "release_date" | "poster_path" | "vote_average"
+> {
   addedAt: number;
 }
 
@@ -26,6 +29,22 @@ interface CollectionState {
   isWatched: (id: number) => boolean;
 }
 
+function toMovie({
+  id,
+  title,
+  poster_path,
+  release_date,
+  vote_average,
+}: Movie) {
+  return {
+    id,
+    title,
+    poster_path,
+    release_date,
+    vote_average,
+  };
+}
+
 export const useCollectionStore = create<CollectionState>()(
   persist(
     (set, get) => ({
@@ -37,7 +56,7 @@ export const useCollectionStore = create<CollectionState>()(
         set((state) => {
           const next = { ...state.favorites };
           if (next[movie.id]) delete next[movie.id];
-          else next[movie.id] = { ...movie, addedAt: Date.now() };
+          else next[movie.id] = { ...toMovie(movie), addedAt: Date.now() };
           return { favorites: next };
         }),
 
@@ -45,7 +64,7 @@ export const useCollectionStore = create<CollectionState>()(
         set((state) => {
           const next = { ...state.watchLater };
           if (next[movie.id]) delete next[movie.id];
-          else next[movie.id] = { ...movie, addedAt: Date.now() };
+          else next[movie.id] = { ...toMovie(movie), addedAt: Date.now() };
           return { watchLater: next };
         }),
 
@@ -53,7 +72,7 @@ export const useCollectionStore = create<CollectionState>()(
         set((state) => ({
           watched: {
             ...state.watched,
-            [movie.id]: { ...movie, rating, addedAt: Date.now() },
+            [movie.id]: { ...toMovie(movie), rating, addedAt: Date.now() },
           },
         })),
 
