@@ -1,4 +1,7 @@
+"use client";
+
 import { ComponentType, SVGProps } from "react";
+import useHydrated from "@/hooks/useHydrated";
 import styles from "./actionButton.module.css";
 
 interface ActionButtonProps {
@@ -16,6 +19,12 @@ export default function ActionButton({
   label,
   onClick,
 }: ActionButtonProps) {
+  const isHydrated = useHydrated();
+
+  if (!isHydrated) {
+    return <div className={styles.button} />;
+  }
+
   return (
     <button
       type="button"

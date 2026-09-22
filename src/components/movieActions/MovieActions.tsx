@@ -1,7 +1,6 @@
 "use client";
 
 import { useCollectionStore } from "@/store/useCollectionStore";
-import styles from "./movieActions.module.css";
 import { HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
@@ -13,6 +12,7 @@ import { CheckCircleIcon as CheckCircleIconSolid } from "@heroicons/react/24/sol
 import { Movie } from "@/lib/tmdb-types";
 import useHydrated from "@/hooks/useHydrated";
 import ActionButton from "./ActionButton";
+import styles from "./movieActions.module.css";
 
 interface MovieActionsProps {
   movie: Movie;
@@ -32,16 +32,6 @@ export default function MovieActions({ movie }: MovieActionsProps) {
   const setRating = useCollectionStore((s) => s.setRating);
 
   const isHydrated = useHydrated();
-
-  if (!isHydrated) {
-    return (
-      <div className={styles.buttons}>
-        {Array.from({ length: 3 }).map((_, index) => (
-          <div key={index} className={styles.button} />
-        ))}
-      </div>
-    );
-  }
 
   return (
     <div className={styles.movieActions}>
@@ -71,7 +61,7 @@ export default function MovieActions({ movie }: MovieActionsProps) {
         />
       </div>
 
-      {isWatched && (
+      {isHydrated && isWatched && (
         <div className={styles.ratingButtons}>
           {Array.from({ length: 10 }).map((_, index) => {
             const isActive = index < userRating;
