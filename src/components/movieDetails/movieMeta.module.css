@@ -10,12 +10,6 @@
   color: var(--color-text-muted);
 }
 
-.genres {
-  display: flex;
-  gap: var(--space-1);
-  list-style-type: none;
-}
-
 .rating {
   display: flex;
   align-items: center;

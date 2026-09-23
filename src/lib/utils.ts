@@ -48,6 +48,14 @@ export function getRuntime(runtime: number | undefined) {
   return `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
 }
 
+export function getGenres(genres: { name: string }[]) {
+  if (genres.length == 0) {
+    return "unknown";
+  }
+
+  return genres.map((genre) => genre.name).join(", ");
+}
+
 export function getRating(rating: number | undefined) {
   if (!rating) {
     return "—";
