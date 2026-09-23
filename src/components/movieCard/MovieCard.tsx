@@ -29,6 +29,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
         width={240}
         height={360}
         className={styles.poster}
+        loading="eager"
       />
       <p className={styles.description}>
         <span className={styles.title}>{movie.title}</span>
