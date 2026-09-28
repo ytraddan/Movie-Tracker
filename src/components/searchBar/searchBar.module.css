@@ -5,6 +5,10 @@
   margin-inline: var(--space-4);
 }
 
+.searchWrapper:focus {
+  outline: none;
+}
+
 .input {
   width: 100%;
   padding-block: var(--space-3);
