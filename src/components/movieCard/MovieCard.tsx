@@ -17,14 +17,20 @@ export default function MovieCard({ movie }: MovieCardProps) {
   const rating = getRating(movie.vote_average);
 
   return (
-    <Link href={`/movie/${movie.id}`} className={styles.movieCard}>
+    <div className={styles.movieCard}>
+      <Link
+        href={`/movie/${movie.id}`}
+        className={styles.cardLink}
+        aria-label={movie.title}
+      />
+
       <FavoriteButton movie={movie} />
 
       <RatingBadges id={movie.id} rating={rating} />
 
       <ImageWithFallback
         fallback="/poster-fallback.png"
-        alt={movie.title}
+        alt=""
         src={posterUrl}
         width={240}
         height={360}
@@ -35,6 +41,6 @@ export default function MovieCard({ movie }: MovieCardProps) {
         <span className={styles.title}>{movie.title}</span>
         <span className={styles.releaseYear}>{releaseYear}</span>
       </p>
-    </Link>
+    </div>
   );
 }
