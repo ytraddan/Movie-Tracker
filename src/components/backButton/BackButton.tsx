@@ -13,7 +13,7 @@ export default function BackButton() {
       onClick={() => router.back()}
       className={styles.button}
     >
-      <ArrowLeftIcon className={styles.arrowIcon} />
+      <ArrowLeftIcon className={styles.arrowIcon} aria-hidden="true" />
       <span className={styles.text}>Go back</span>
     </button>
   );

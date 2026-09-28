@@ -25,18 +25,18 @@ export default function Pagination({
   }
 
   return (
-    <nav className={styles.pagination}>
+    <nav className={styles.pagination} aria-label="Movie list pagination">
       {isFirst ? (
-        <span className={styles.button} aria-disabled="true">
+        <div className={styles.button} aria-disabled="true">
           <ChevronLeftIcon className={styles.arrowIcon} />
           <span className={`${styles.buttonText} ${styles.left}`}>Back</span>
-        </span>
+        </div>
       ) : (
         <Link
           className={styles.button}
           href={`/?${buildSearchParams(currentPage - 1)}`}
         >
-          <ChevronLeftIcon className={styles.arrowIcon} />
+          <ChevronLeftIcon className={styles.arrowIcon} aria-hidden="true" />
           <span className={`${styles.buttonText} ${styles.left}`}>Back</span>
         </Link>
       )}
@@ -46,17 +46,17 @@ export default function Pagination({
       </span>
 
       {isLast ? (
-        <span className={styles.button} aria-disabled="true">
+        <div className={styles.button} aria-disabled="true">
           <span className={`${styles.buttonText} ${styles.right}`}>Next</span>
           <ChevronRightIcon className={styles.arrowIcon} />
-        </span>
+        </div>
       ) : (
         <Link
           className={styles.button}
           href={`/?${buildSearchParams(currentPage + 1)}`}
         >
           <span className={`${styles.buttonText} ${styles.right}`}>Next</span>
-          <ChevronRightIcon className={styles.arrowIcon} />
+          <ChevronRightIcon className={styles.arrowIcon} aria-hidden="true" />
         </Link>
       )}
     </nav>

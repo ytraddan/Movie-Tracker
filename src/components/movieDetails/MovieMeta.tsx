@@ -31,7 +31,7 @@ export default function MovieMeta({ movie }: MovieMetaProps) {
         <span>{genres}</span>
       </div>
       <div className={styles.rating}>
-        <StarIcon className={styles.starIcon} />
+        <StarIcon className={styles.starIcon} aria-hidden="true" />
         <span className={styles.ratingNumber}>{rating}</span>
         <span className={styles.voteCount}>{voteCount}</span>
       </div>

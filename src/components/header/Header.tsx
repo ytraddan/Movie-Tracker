@@ -13,7 +13,7 @@ export default function Header() {
           <Image
             className={styles.logoIcon}
             src="/movie.svg"
-            alt="Movie icon"
+            alt=""
             width={30}
             height={30}
           />
@@ -27,7 +27,7 @@ export default function Header() {
 
         <Link href={"/collection"} className={styles.collectionButton}>
           <span className={styles.collectionText}>My Collection</span>
-          <BookmarkIcon className={styles.bookmarkIcon} />
+          <BookmarkIcon className={styles.bookmarkIcon} aria-hidden="true" />
         </Link>
       </header>
     </div>
