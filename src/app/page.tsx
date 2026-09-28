@@ -22,7 +22,12 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   return (
     <section className={styles.homePage}>
       <BackgroundImage path="/home-background.png" />
-      <Tabs tabs={HOME_TABS} activeTab={activeTab} basePath="/" />
+      <Tabs
+        tabs={HOME_TABS}
+        activeTab={activeTab}
+        basePath="/"
+        navLabel="Movie categories"
+      />
       <MovieGrid movies={results} />
       <Pagination
         currentPage={currentPage}

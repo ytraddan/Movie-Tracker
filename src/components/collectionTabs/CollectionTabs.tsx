@@ -26,8 +26,9 @@ export default function CollectionTabs({ activeTab }: CollectionTabsProps) {
     <Tabs
       tabs={COLLECTION_TABS}
       activeTab={activeTab}
-      basePath={"/collection"}
       counts={counts}
+      basePath={"/collection"}
+      navLabel="Collection categories"
     />
   );
 }
