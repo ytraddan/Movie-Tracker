@@ -62,20 +62,28 @@ export default function MovieActions({ movie }: MovieActionsProps) {
       </div>
 
       {isHydrated && isWatched && (
-        <div className={styles.ratingButtons}>
+        <div
+          className={styles.ratingButtons}
+          role="group"
+          aria-label={`Your rating: ${userRating ? `${userRating} out of 10` : "not rated"}`}
+        >
           {Array.from({ length: 10 }).map((_, index) => {
             const isActive = index < userRating;
             const Icon = isActive ? StarIconSolid : StarIconOutline;
+            const value = index + 1;
 
             return (
               <button
                 key={index}
                 type="button"
-                onClick={() => setRating(movie.id, index + 1)}
+                onClick={() => setRating(movie.id, value)}
                 className={styles.starButton}
+                aria-label={`Rate ${value} ${value === 1 ? "star" : "stars"}`}
+                aria-pressed={isActive}
               >
                 <Icon
                   className={`${styles.starIcon} ${isActive ? styles.solid : ""}`}
+                  aria-hidden="true"
                 />
               </button>
             );

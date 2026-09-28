@@ -30,8 +30,12 @@ export default function ActionButton({
       type="button"
       onClick={onClick}
       className={`${styles.button} ${styles[variant]}`}
+      aria-pressed={isActive}
     >
-      <Icon className={`${styles.icon} ${isActive ? styles.solid : ""}`} />
+      <Icon
+        className={`${styles.icon} ${isActive ? styles.solid : ""}`}
+        aria-hidden="true"
+      />
       <span>{label}</span>
     </button>
   );
