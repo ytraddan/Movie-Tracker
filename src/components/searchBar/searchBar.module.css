@@ -35,7 +35,8 @@
 
 .input:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-surface);
+  border-radius: var(--radius-lg);
+  outline: none;
 }
 
 .searchWrapper:has(input:focus) .icon {
