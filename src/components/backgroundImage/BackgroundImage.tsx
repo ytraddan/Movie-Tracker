@@ -10,7 +10,7 @@ export default function BackgroundImage({ path }: BackgroundImage) {
     <div className={styles.pageBackground}>
       <Image
         src={path}
-        alt="background image of a dark cinema"
+        alt=""
         fill
         loading="eager"
         className={styles.pageBackgroundImage}

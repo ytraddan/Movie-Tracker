@@ -26,7 +26,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
           fallback="/backdrop-fallback.png"
           className={styles.backdropImage}
           src={backdropUrl}
-          alt={movie.title}
+          alt=""
           sizes="100vw"
           loading="eager"
           fill
@@ -44,7 +44,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
             fallback="/poster-fallback.png"
             className={styles.poster}
             src={posterUrl}
-            alt={movie.title}
+            alt=""
             width={320}
             height={480}
           />

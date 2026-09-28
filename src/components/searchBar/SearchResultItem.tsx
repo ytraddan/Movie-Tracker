@@ -27,7 +27,7 @@ export default function SearchResultItem({ movie }: SearchResultItem) {
         fallback="/poster-fallback.png"
         height={84}
         width={56}
-        alt={movie.title}
+        alt=""
         src={posterUrl}
         className={styles.poster}
       />

@@ -29,7 +29,7 @@ export default function CastList({ cast, limit }: CastListProps) {
               className={styles.castMemberImage}
               height={170}
               width={170}
-              alt={member.name}
+              alt=""
             />
             <span>{member.name}</span>
             <span className={styles.castMemberCharacter}>
