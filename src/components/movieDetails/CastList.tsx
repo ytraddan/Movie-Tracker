@@ -24,10 +24,7 @@ export default function CastList({ cast, limit }: CastListProps) {
         {visibleCast.map((member) => (
           <li className={styles.castMember} key={member.id}>
             <ImageWithFallback
-              src={getImageUrl(
-                member.profile_path,
-                IMAGE_SIZES.profile.original,
-              )}
+              src={getImageUrl(member.profile_path, IMAGE_SIZES.profile.md)}
               fallback="/actor-fallback.png"
               className={styles.castMemberImage}
               height={170}

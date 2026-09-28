@@ -12,7 +12,7 @@ interface MovieDetailsProps {
 }
 
 export default function MovieDetails({ movie }: MovieDetailsProps) {
-  const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.original);
+  const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.lg);
   const backdropUrl = getImageUrl(
     movie.backdrop_path,
     IMAGE_SIZES.backdrop.original,

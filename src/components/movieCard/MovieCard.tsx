@@ -12,7 +12,7 @@ interface MovieCardProps {
 }
 
 export default function MovieCard({ movie }: MovieCardProps) {
-  const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.lg);
+  const posterUrl = getImageUrl(movie.poster_path, IMAGE_SIZES.poster.md);
   const releaseYear = getReleaseYear(movie.release_date);
   const rating = getRating(movie.vote_average);
 
