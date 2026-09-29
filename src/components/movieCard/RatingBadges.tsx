@@ -19,14 +19,24 @@ export default function RatingBadges({ id, rating }: RatingBadgesProps) {
       {rating !== "—" && (
         <div className={styles.ratingBadge}>
           <StarIcon className={styles.ratingIcon} aria-hidden="true" />
-          <span className={styles.ratingNumber}>{rating}</span>
+          <span
+            className={styles.ratingNumber}
+            aria-label={`Rating: ${rating} out of 10`}
+          >
+            {rating}
+          </span>
         </div>
       )}
 
       {isHydrated && userRating > 0 && (
         <div className={styles.ratingBadge}>
           <StarIcon className={styles.userRatingIcon} aria-hidden="true" />
-          <span className={styles.ratingNumber}>{userRating}.0</span>
+          <span
+            className={styles.ratingNumber}
+            aria-label={`My rating: ${rating} out of 10`}
+          >
+            {userRating}.0
+          </span>
         </div>
       )}
     </div>
