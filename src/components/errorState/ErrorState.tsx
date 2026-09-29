@@ -12,7 +12,7 @@ export default function ErrorState({
   onRetry,
 }: ErrorStateProps) {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} role="alert">
       <h1 className={styles.title}>{title}</h1>
       <p className={styles.message}>{message}</p>
       <button type="button" onClick={onRetry} className={styles.button}>
