@@ -21,6 +21,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <section className={styles.homePage}>
+      <h1 className="sr-only">Movie Tracker — browse movies</h1>
       <BackgroundImage path="/home-background.png" />
       <Tabs
         tabs={HOME_TABS}
