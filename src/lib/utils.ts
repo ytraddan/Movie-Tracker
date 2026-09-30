@@ -1,4 +1,5 @@
 import { TMDB_IMAGE_BASE_URL, TMDB_MAX_PAGE } from "./constants";
+import { CrewMember } from "./tmdb-types";
 import { Tab } from "./types";
 
 export function getCurrentPage(page?: string) {
@@ -48,8 +49,8 @@ export function getRuntime(runtime: number | undefined) {
   return `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
 }
 
-export function getGenres(genres: { name: string }[]) {
-  if (genres.length == 0) {
+export function getGenres(genres: { name: string }[] | undefined) {
+  if (!genres || genres.length == 0) {
     return "unknown";
   }
 
@@ -70,4 +71,15 @@ export function getVoteCount(count: number | undefined) {
   }
 
   return `${count.toLocaleString()} ratings`;
+}
+
+export function getDirectors(crew: CrewMember[] | undefined) {
+  if (!crew) {
+    return "unknown";
+  }
+
+  return crew
+    .filter((member) => member.job === "Director")
+    .map((member) => member.name)
+    .join(", ");
 }
