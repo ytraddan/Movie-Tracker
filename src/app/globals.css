@@ -39,6 +39,7 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
+  --z-popup: 4;
   --z-tablist: 5;
   --z-header: 10;
   --z-modal: 100;
