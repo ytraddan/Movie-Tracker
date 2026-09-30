@@ -18,6 +18,7 @@ export interface Movie {
 
 export interface MovieDetails extends Movie {
   runtime?: number;
+  tagline?: string;
   genres: Genre[];
   credits: Credits;
 }
@@ -29,6 +30,13 @@ export interface Genre {
 
 export interface Credits {
   cast: CastMember[];
+  crew: CrewMember[];
+}
+
+export interface CrewMember {
+  id: number;
+  name: string;
+  job: string;
 }
 
 export interface CastMember {
