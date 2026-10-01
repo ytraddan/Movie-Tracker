@@ -1,6 +1,13 @@
 import { IMAGE_SIZES } from "@/lib/constants";
 import { type MovieDetails } from "@/lib/tmdb-types";
-import { getImageUrl, getOverview } from "@/lib/utils";
+import {
+  getCountries,
+  getDirectors,
+  getImageUrl,
+  getLanguage,
+  getMoney,
+  getOverview,
+} from "@/lib/utils";
 import styles from "./movieDetails.module.css";
 import MovieMeta from "./MovieMeta";
 import MovieActions from "../movieActions/MovieActions";
@@ -18,6 +25,22 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
     IMAGE_SIZES.backdrop.original,
   );
   const overview = getOverview(movie.overview);
+  const directors = getDirectors(movie.credits.crew);
+  const countries = getCountries(movie.production_countries);
+
+  const facts = [
+    {
+      label: directors.includes(",") ? "Directors" : "Director",
+      value: directors,
+    },
+    { label: "Original language", value: getLanguage(movie.original_language) },
+    { label: "Budget", value: getMoney(movie.budget) },
+    { label: "Revenue", value: getMoney(movie.revenue) },
+    {
+      label: countries.includes(",") ? "Countries" : "Country",
+      value: countries,
+    },
+  ];
 
   return (
     <div className={styles.hero}>
@@ -56,6 +79,14 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
               <h2 className={styles.overviewTitle}>Overview</h2>
               <p className={styles.overviewText}>{overview}</p>
             </section>
+            <dl className={styles.facts}>
+              {facts.map((fact) => (
+                <div key={fact.label} className={styles.fact}>
+                  <dt>{fact.label}</dt>
+                  <dd className={styles.value}>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
