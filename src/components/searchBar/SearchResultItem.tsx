@@ -37,9 +37,13 @@ export default function SearchResultItem({ movie }: SearchResultItem) {
           <div className={styles.rating}>
             <StarIcon className={styles.starIcon} aria-hidden="true" />
             <span>{rating}</span>
-          </div>{" "}
-          {"·"}
-          <span className={styles.releaseDate}>{releaseYear}</span>
+          </div>
+          {releaseYear && (
+            <>
+              {"·"}
+              <span className={styles.releaseDate}>{releaseYear}</span>
+            </>
+          )}
         </div>
         <p className={styles.overview}>{overview}</p>
       </div>
