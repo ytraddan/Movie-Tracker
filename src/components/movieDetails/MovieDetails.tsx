@@ -75,10 +75,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
           <div className={styles.metaWrapper}>
             <MovieMeta movie={movie} />
             <MovieActions movie={movie} />
-            <section className={styles.overview}>
-              <h2 className={styles.overviewTitle}>Overview</h2>
-              <p className={styles.overviewText}>{overview}</p>
-            </section>
+            <p className={styles.overview}>{overview}</p>
             <dl className={styles.facts}>
               {facts.map((fact) => (
                 <div key={fact.label} className={styles.fact}>

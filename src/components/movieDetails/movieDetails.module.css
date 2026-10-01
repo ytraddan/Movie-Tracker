@@ -35,16 +35,6 @@
 }
 
 .overview {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.overviewTitle {
-  font-weight: var(--font-weight-medium);
-}
-
-.overviewText {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
   color: var(--color-text-muted);
