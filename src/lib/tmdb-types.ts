@@ -19,8 +19,18 @@ export interface Movie {
 export interface MovieDetails extends Movie {
   runtime?: number;
   tagline?: string;
+  original_title?: string;
+  original_language?: string;
+  budget?: number;
+  revenue?: number;
+  production_countries: Country[];
   genres: Genre[];
   credits: Credits;
+}
+
+export interface Country {
+  iso_3166_1: string;
+  name: string;
 }
 
 export interface Genre {
