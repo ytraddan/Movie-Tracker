@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 
 interface MovieEntry extends Pick<
   Movie,
-  "id" | "title" | "release_date" | "poster_path" | "vote_average"
+  "id" | "title" | "release_date" | "poster_path" | "vote_average" | "overview"
 > {
   addedAt: number;
 }
@@ -35,6 +35,7 @@ function toMovie({
   poster_path,
   release_date,
   vote_average,
+  overview,
 }: Movie) {
   return {
     id,
@@ -42,6 +43,7 @@ function toMovie({
     poster_path,
     release_date,
     vote_average,
+    overview,
   };
 }
 
