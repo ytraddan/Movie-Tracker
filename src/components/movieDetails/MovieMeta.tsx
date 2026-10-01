@@ -19,15 +19,32 @@ export default function MovieMeta({ movie }: MovieMetaProps) {
   const rating = getRating(movie.vote_average);
   const voteCount = getVoteCount(movie.vote_count);
   const genres = getGenres(movie.genres);
+  const hasOriginalTitle =
+    movie.original_title && movie.original_title !== movie.title;
 
   return (
     <div className={styles.wrapper}>
-      <h1>{movie.title}</h1>
+      <h1>
+        {movie.title}{" "}
+        {hasOriginalTitle && (
+          <span className={styles.originalTitle}>({movie.original_title})</span>
+        )}
+      </h1>
+
+      {movie.tagline && <p className={styles.tagline}>{movie.tagline}</p>}
       <div className={styles.meta}>
-        <span>{releaseYear}</span>
-        {"·"}
-        <span>{runtime}</span>
-        {"·"}
+        {releaseYear && (
+          <>
+            <span>{releaseYear}</span>
+            {"·"}
+          </>
+        )}
+        {runtime && (
+          <>
+            <span>{runtime}</span>
+            {"·"}
+          </>
+        )}
         <span>{genres}</span>
       </div>
       <div className={styles.rating}>
