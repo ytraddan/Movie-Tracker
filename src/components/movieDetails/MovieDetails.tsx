@@ -68,8 +68,8 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
             className={styles.poster}
             src={posterUrl}
             alt=""
-            width={320}
-            height={480}
+            width={340}
+            height={510}
           />
 
           <div className={styles.metaWrapper}>
