@@ -20,7 +20,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   const { results, total_pages } = await fetchMovies(activeTab, currentPage);
 
   return (
-    <section className={styles.homePage}>
+    <div className={styles.homePage}>
       <h1 className="sr-only">Movie Tracker — browse movies</h1>
       <BackgroundImage path="/home-background.png" />
       <Tabs
@@ -35,6 +35,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         totalPages={Math.min(total_pages, TMDB_MAX_PAGE)}
         activeTab={activeTab}
       />
-    </section>
+    </div>
   );
 }

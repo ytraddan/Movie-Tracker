@@ -15,11 +15,11 @@ export default async function CollectionPage({ searchParams }: CollectionPage) {
   const { id: activeTab, emptyMessage } = getCurrentTab(COLLECTION_TABS, tab);
 
   return (
-    <section className={styles.wrapper}>
-      <h1 className="sr-only">Movie Tracker — browse movies</h1>
+    <div className={styles.wrapper}>
+      <h1 className="sr-only">My collection</h1>
       <BackgroundImage path="/collection-background.png" />
       <CollectionTabs activeTab={activeTab} />
       <CollectionList tab={activeTab} emptyMessage={emptyMessage} />
-    </section>
+    </div>
   );
 }
