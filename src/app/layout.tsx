@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Oswald, Inter } from "next/font/google";
 import { Providers } from "./providers";
 import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Providers>
           <Header />
           <main>{children}</main>
+          <Footer />
         </Providers>
         <Analytics />
       </body>
