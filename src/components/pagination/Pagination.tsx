@@ -27,10 +27,10 @@ export default function Pagination({
   return (
     <nav className={styles.pagination} aria-label="Movie list pagination">
       {isFirst ? (
-        <div className={styles.button} aria-disabled="true">
-          <ChevronLeftIcon className={styles.arrowIcon} />
+        <button className={styles.button} disabled>
+          <ChevronLeftIcon className={styles.arrowIcon} aria-hidden="true" />
           <span className={`${styles.buttonText} ${styles.left}`}>Back</span>
-        </div>
+        </button>
       ) : (
         <Link
           className={styles.button}
@@ -41,15 +41,20 @@ export default function Pagination({
         </Link>
       )}
 
-      <span className={styles.pageNumber}>
-        {currentPage} / {totalPages}
-      </span>
+      <p className={styles.pageNumber}>
+        <span className="sr-only">
+          Page {currentPage} of {totalPages}
+        </span>
+        <span aria-hidden="true">
+          {currentPage} / {totalPages}
+        </span>
+      </p>
 
       {isLast ? (
-        <div className={styles.button} aria-disabled="true">
+        <button className={styles.button} disabled>
           <span className={`${styles.buttonText} ${styles.right}`}>Next</span>
-          <ChevronRightIcon className={styles.arrowIcon} />
-        </div>
+          <ChevronRightIcon className={styles.arrowIcon} aria-hidden="true" />
+        </button>
       ) : (
         <Link
           className={styles.button}

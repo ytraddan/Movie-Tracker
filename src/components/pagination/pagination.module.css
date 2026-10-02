@@ -20,7 +20,7 @@
   font-family: var(--font-secondary);
 }
 
-.button[aria-disabled="true"] {
+.button:disabled {
   color: var(--color-bg-elevated);
   border-color: var(--color-border-subtle);
   pointer-events: none;
