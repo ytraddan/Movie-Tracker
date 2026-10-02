@@ -4,7 +4,6 @@ import styles from "./searchDropdown.module.css";
 import DropdownSkeleton from "../skeletons/DropdownSkeleton";
 
 interface SearchDropdownProps {
-  listboxId: string;
   isLoading: boolean;
   isError: boolean;
   movies?: Movie[];
@@ -12,7 +11,6 @@ interface SearchDropdownProps {
 }
 
 export default function SearchDropdown({
-  listboxId,
   isLoading,
   isError,
   movies,
@@ -46,19 +44,9 @@ export default function SearchDropdown({
       <p className="sr-only" role="status" aria-live="polite">
         {movies.length} result{movies.length === 1 ? "" : "s"} found
       </p>
-      <ul
-        className={styles.movieList}
-        role="listbox"
-        id={listboxId}
-        aria-label="Search results"
-      >
+      <ul className={styles.movieList} aria-label="Search results">
         {movies.map((movie) => (
-          <li
-            key={movie.id}
-            role="option"
-            aria-selected="false"
-            onClick={onSelect}
-          >
+          <li key={movie.id} onClick={onSelect}>
             <SearchResultItem movie={movie} />
           </li>
         ))}

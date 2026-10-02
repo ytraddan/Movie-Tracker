@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useQuery } from "@tanstack/react-query";
@@ -11,7 +11,6 @@ import styles from "./searchBar.module.css";
 export default function SearchBar() {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const listboxId = useId();
 
   const debouncedQuery = useDebounce(query, 300);
 
@@ -30,9 +29,8 @@ export default function SearchBar() {
   }
 
   return (
-    <div
+    <search
       className={styles.searchWrapper}
-      tabIndex={-1}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget)) setIsOpen(false);
       }}
@@ -41,12 +39,7 @@ export default function SearchBar() {
       }}
     >
       <input
-        type="text"
-        role="combobox"
-        aria-expanded={showDropdown}
-        aria-controls={listboxId}
-        aria-autocomplete="list"
-        aria-haspopup="listbox"
+        type="search"
         aria-label="Search for movies"
         value={query}
         onChange={(e) => {
@@ -54,13 +47,12 @@ export default function SearchBar() {
           setIsOpen(true);
         }}
         onFocus={() => query && setIsOpen(true)}
-        placeholder="Search for movies, TV shows..."
+        placeholder="Search for movies..."
         className={styles.input}
       />
 
       {showDropdown && (
         <SearchDropdown
-          listboxId={listboxId}
           isError={isError}
           isLoading={isLoading}
           movies={data?.results}
@@ -68,6 +60,6 @@ export default function SearchBar() {
         />
       )}
       <MagnifyingGlassIcon className={styles.icon} aria-hidden="true" />
-    </div>
+    </search>
   );
 }
