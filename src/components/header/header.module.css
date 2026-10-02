@@ -1,4 +1,4 @@
-.wrapper {
+.header {
   position: sticky;
   z-index: var(--z-header);
   height: var(--header-height);
@@ -9,7 +9,7 @@
   background-color: var(--color-bg-transparent);
 }
 
-.header {
+.nav {
   width: 100%;
   max-width: var(--content-max-width);
   padding-inline: var(--space-32);

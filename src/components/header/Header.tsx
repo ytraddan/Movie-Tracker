@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className={styles.wrapper}>
-      <header className={styles.header}>
+    <header className={styles.header}>
+      <nav className={styles.nav} aria-label="Main">
         <Link href="/" className={styles.logo}>
           <Image
             className={styles.logoIcon}
@@ -17,10 +17,9 @@ export default function Header() {
             width={30}
             height={30}
           />
-          <div className={styles.title}>
-            <span> Movie </span>
-            <span className={styles.highlighted}>Tracker</span>
-          </div>
+          <span className={styles.title}>
+            Movie <span className={styles.highlighted}>Tracker</span>
+          </span>
         </Link>
 
         <SearchBar />
@@ -29,7 +28,7 @@ export default function Header() {
           <span className={styles.collectionText}>My Collection</span>
           <BookmarkIcon className={styles.bookmarkIcon} aria-hidden="true" />
         </Link>
-      </header>
-    </div>
+      </nav>
+    </header>
   );
 }
