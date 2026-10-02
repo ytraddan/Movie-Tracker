@@ -49,10 +49,8 @@ export default function MovieMeta({ movie }: MovieMetaProps) {
       </div>
       <div className={styles.rating}>
         <StarIcon className={styles.starIcon} aria-hidden="true" />
-        <span
-          className={styles.ratingNumber}
-          aria-label={`Rating: ${rating} out of 10`}
-        >
+        <span className="sr-only">Rating: {rating} out of 10</span>
+        <span className={styles.ratingNumber} aria-hidden="true">
           {rating}
         </span>
         <span className={styles.voteCount}>{voteCount}</span>
