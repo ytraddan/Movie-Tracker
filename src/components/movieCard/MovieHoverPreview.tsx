@@ -47,12 +47,12 @@ export default function MovieHoverPreview({
 
       {position &&
         createPortal(
-          <aside
+          <div
             className={styles.preview}
             style={{ ...position, width: PREVIEW_WIDTH }}
             aria-hidden="true"
           >
-            <h3 className={styles.title}>{movie.title}</h3>
+            <h4 className={styles.title}>{movie.title}</h4>
 
             {isLoading ? (
               <div className={styles.skeleton} />
@@ -91,7 +91,7 @@ export default function MovieHoverPreview({
                 {getDirectors(details?.credits.crew)}
               </p>
             )}
-          </aside>,
+          </div>,
           document.body,
         )}
     </div>
