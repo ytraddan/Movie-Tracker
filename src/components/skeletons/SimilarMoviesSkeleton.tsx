@@ -9,9 +9,9 @@ export function SimilarMoviesSkeleton({
   itemsCount,
 }: SimilarMoviesSkeletonProps) {
   return (
-    <section className={scrollStyles.scrollSection}>
+    <section className={scrollStyles.scrollSection} aria-busy="true">
       <h2>Similar Movies</h2>
-      <ul>
+      <ul aria-hidden="true">
         {Array.from({ length: itemsCount }).map((_, index) => (
           <li key={index} className={styles.skeletonCard} />
         ))}
