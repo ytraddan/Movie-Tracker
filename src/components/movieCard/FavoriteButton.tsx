@@ -18,12 +18,7 @@ export default function FavoriteButton({ movie }: FavoriteButtonProps) {
 
   if (!isHydrated) {
     return (
-      <button
-        type="button"
-        className={styles.button}
-        aria-hidden="true"
-        tabIndex={-1}
-      >
+      <button type="button" className={styles.button} disabled>
         <HeartIconOutline className={styles.icon} aria-hidden="true" />
       </button>
     );
@@ -37,7 +32,7 @@ export default function FavoriteButton({ movie }: FavoriteButtonProps) {
       }}
       className={styles.button}
       aria-pressed={isFavorite}
-      aria-label={`Add ${movie.title} to favorites`}
+      aria-label={`Favorite: ${movie.title}`}
     >
       {isFavorite ? (
         <HeartIconSolid className={styles.icon} aria-hidden="true" />

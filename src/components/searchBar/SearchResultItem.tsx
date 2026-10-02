@@ -36,7 +36,8 @@ export default function SearchResultItem({ movie }: SearchResultItem) {
         <div className={styles.meta}>
           <div className={styles.rating}>
             <StarIcon className={styles.starIcon} aria-hidden="true" />
-            <span>{rating}</span>
+            <span className="sr-only">Rating: {rating} out of 10</span>
+            <span aria-hidden="true">{rating}</span>
           </div>
           {releaseYear && (
             <>

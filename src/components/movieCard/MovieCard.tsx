@@ -39,10 +39,10 @@ export default function MovieCard({ movie }: MovieCardProps) {
           className={styles.poster}
           loading="eager"
         />
-        <p className={styles.description}>
-          <span className={styles.title}>{movie.title}</span>
+        <div className={styles.description}>
+          <h3 className={styles.title}>{movie.title}</h3>
           <span className={styles.releaseYear}>{releaseYear}</span>
-        </p>
+        </div>
       </div>
     </MovieHoverPreview>
   );
