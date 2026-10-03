@@ -16,5 +16,4 @@
 .message {
   font-family: var(--font-secondary);
   color: var(--color-text-muted);
-  max-width: var(--text-max-width);
 }

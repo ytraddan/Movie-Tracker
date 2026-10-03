@@ -15,9 +15,9 @@
   --dropdown-max-height: 40rem;
   --search-max-width: 30rem;
   --header-height: 4.75rem;
-  --text-max-width: 50rem;
   --movie-card-width: 240px;
 
+  --page-padding: var(--space-32);
   --content-max-width: 1700px;
 
   --radius-sm: 4px;
@@ -145,7 +145,7 @@ main {
   flex: 1;
   width: 100%;
   max-width: var(--content-max-width);
-  padding: 0 var(--space-32);
+  padding: 0 var(--page-padding);
   padding-bottom: var(--space-8);
   margin-inline: auto;
 }
