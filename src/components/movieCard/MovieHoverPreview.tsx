@@ -40,6 +40,7 @@ export default function MovieHoverPreview({
     staleTime: 60 * 1000 * 30,
     enabled: position !== null,
   });
+  const runtime = getRuntime(details?.runtime);
 
   return (
     <div ref={ref} onMouseEnter={open} onMouseLeave={close}>
@@ -62,10 +63,10 @@ export default function MovieHoverPreview({
 
             <div className={styles.meta}>
               <span>{getReleaseYear(movie.release_date)}</span>
-              {details && (
+              {runtime && (
                 <>
                   {"·"}
-                  <span>{getRuntime(details.runtime)}</span>
+                  <span>{runtime}</span>
                 </>
               )}
               {"·"}
