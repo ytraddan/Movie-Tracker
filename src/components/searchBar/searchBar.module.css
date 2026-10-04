@@ -54,6 +54,7 @@
 
 @media (min-width: 769px) {
   .input {
+    font-size: var(--font-size-sm);
     padding-block: var(--space-3);
   }
   .icon {
