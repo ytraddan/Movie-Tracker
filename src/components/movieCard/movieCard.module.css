@@ -3,7 +3,6 @@
   display: flex;
   gap: var(--space-2);
   flex-direction: column;
-  background-color: var(--color-bg-overlay);
   border-radius: var(--radius-xl);
   padding-bottom: var(--space-2);
 }
@@ -41,13 +40,23 @@
 }
 
 .title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   transition: color var(--transition-fast);
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .releaseYear {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   transition: color var(--transition-fast);
+}
+
+@media (min-width: 769px) {
+  .title {
+    font-size: var(--font-size-lg);
+  }
 }

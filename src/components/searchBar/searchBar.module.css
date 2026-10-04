@@ -11,14 +11,14 @@
 
 .input {
   width: 100%;
-  padding-block: var(--space-3);
+  padding-block: var(--space-2);
   padding-inline: var(--space-4) var(--space-12);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background-color: var(--color-bg-secondary);
   color: var(--color-text);
   font-family: var(--font-secondary);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   outline: none;
   transition:
     border-color var(--transition-fast),
@@ -46,8 +46,18 @@
 .icon {
   position: absolute;
   right: 12px;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   color: var(--color-text-muted);
   pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .input {
+    padding-block: var(--space-3);
+  }
+  .icon {
+    height: 24px;
+    width: 24px;
+  }
 }

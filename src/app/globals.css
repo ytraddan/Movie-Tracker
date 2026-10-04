@@ -14,10 +14,10 @@
 
   --dropdown-max-height: 40rem;
   --search-max-width: 30rem;
-  --header-height: 4.75rem;
+  --header-height: 4rem;
   --movie-card-width: 240px;
 
-  --page-padding: var(--space-32);
+  --page-padding: var(--space-4);
   --content-max-width: 1700px;
 
   --radius-sm: 4px;
@@ -34,6 +34,7 @@
   --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
 
   --font-weight-regular: 300;
   --font-weight-medium: 500;
@@ -132,7 +133,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
   color: var(--color-text);
   background: var(--color-bg);
@@ -199,5 +200,30 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+  Breakpoints:
+    481px  — tablet
+    769px  — small desktop
+   1025px  — desktop
+*/
+
+@media (min-width: 481px) {
+  :root {
+    --page-padding: var(--space-8);
+  }
+}
+
+@media (min-width: 769px) {
+  :root {
+    --header-height: 4.75rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --page-padding: var(--space-32);
   }
 }

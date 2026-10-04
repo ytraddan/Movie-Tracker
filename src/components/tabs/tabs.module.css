@@ -4,13 +4,13 @@
   top: var(--header-height);
   display: flex;
   align-items: center;
-  padding-top: var(--space-2);
-  gap: var(--space-6);
+  padding-top: var(--space-1);
   border-bottom: 1px solid var(--color-accent-surface);
   background-color: var(--color-bg-transparent);
 }
 
 .icon {
+  display: none;
   width: 22px;
   height: 22px;
 }
@@ -19,13 +19,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--space-2);
+  flex-grow: 1;
+  min-width: 0;
+  gap: var(--space-1);
+  padding-inline: var(--space-2);
   padding-block: var(--space-2);
   color: var(--color-text-muted);
-  min-width: var(--space-20);
   min-height: var(--space-12);
   background-color: transparent;
-  border: none;
   border-bottom: 2px solid transparent;
   font-family: var(--font-secondary);
   font-size: var(--font-size-sm);
@@ -66,4 +67,27 @@
 .active .count {
   background-color: var(--color-accent-dark);
   color: var(--color-accent);
+}
+
+@media (min-width: 481px) {
+  .tab {
+    gap: var(--space-2);
+  }
+}
+
+@media (min-width: 769px) {
+  .tabList {
+    padding-top: var(--space-2);
+    gap: var(--space-6);
+  }
+
+  .tab {
+    flex-grow: 0;
+    min-width: var(--space-20);
+    padding-inline: 0;
+  }
+
+  .icon {
+    display: block;
+  }
 }

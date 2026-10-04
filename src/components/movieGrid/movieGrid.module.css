@@ -1,8 +1,23 @@
 .movieGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, var(--movie-card-width));
-  justify-content: space-between;
-  column-gap: var(--space-8);
-  row-gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-4);
   list-style-type: none;
+}
+
+.movieGrid img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 769px) {
+  .movieGrid {
+    grid-template-columns: repeat(auto-fill, var(--movie-card-width));
+    justify-content: space-between;
+    column-gap: var(--space-8);
+  }
+
+  .movieGrid img {
+    width: auto;
+  }
 }

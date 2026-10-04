@@ -34,8 +34,8 @@
 
 .info {
   display: flex;
-  flex: 1;
   flex-direction: column;
+  min-width: 0;
   padding-right: var(--space-2);
   font-weight: var(--font-weight-regular);
 }
