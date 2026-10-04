@@ -29,7 +29,8 @@
   background-color: transparent;
   border-bottom: 2px solid transparent;
   font-family: var(--font-secondary);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
+  text-wrap: nowrap;
   transition:
     color var(--transition-fast),
     border-color var(--transition-fast),
@@ -73,6 +74,10 @@
   .tab {
     gap: var(--space-2);
   }
+
+  .icon {
+    display: block;
+  }
 }
 
 @media (min-width: 769px) {
@@ -85,9 +90,6 @@
     flex-grow: 0;
     min-width: var(--space-20);
     padding-inline: 0;
-  }
-
-  .icon {
-    display: block;
+    font-size: var(--font-size-sm);
   }
 }
