@@ -26,7 +26,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            My Github
+            Github
           </a>
         </nav>
       </div>
