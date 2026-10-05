@@ -5,6 +5,7 @@
   flex-direction: column;
   border-radius: var(--radius-xl);
   padding-bottom: var(--space-2);
+  max-width: var(--movie-card-width);
 }
 
 .movieCard:hover .title {
