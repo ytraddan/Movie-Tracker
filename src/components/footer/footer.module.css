@@ -46,7 +46,7 @@
   color: var(--color-accent-hover);
 }
 
-@media (min-width: 481px) {
+@media (min-width: 769px) {
   .description {
     display: block;
   }
