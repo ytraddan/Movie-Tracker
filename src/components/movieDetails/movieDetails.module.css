@@ -141,6 +141,8 @@
   }
 
   .poster {
+    width: 340;
+    height: 510;
     align-self: auto;
   }
 

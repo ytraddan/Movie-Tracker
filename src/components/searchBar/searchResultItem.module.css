@@ -15,8 +15,8 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   object-fit: cover;
-  width: 52px;
-  height: auto;
+  width: 51px;
+  height: 34px;
 }
 
 .movie:hover {
@@ -89,7 +89,7 @@
 @media (min-width: 769px) {
   .poster {
     width: 56px;
-    height: 84;
+    height: 84px;
   }
 
   .overview {
