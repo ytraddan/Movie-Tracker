@@ -4,6 +4,10 @@
   gap: var(--space-2);
 }
 
+.title {
+  font-size: var(--font-size-xl);
+}
+
 .originalTitle {
   font-family: var(--font-secondary);
   font-size: var(--font-size-md);
@@ -21,6 +25,7 @@
   display: flex;
   gap: var(--space-1);
   color: var(--color-text-muted);
+  flex-wrap: wrap;
 }
 
 .rating {
@@ -44,4 +49,10 @@
   margin-left: var(--space-2);
   align-self: flex-end;
   font-weight: var(--font-weight-regular);
+}
+
+@media (min-width: 769px) {
+  .title {
+    font-size: var(--font-size-xxl);
+  }
 }

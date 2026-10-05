@@ -24,7 +24,7 @@ export default function MovieMeta({ movie }: MovieMetaProps) {
 
   return (
     <div className={styles.wrapper}>
-      <h1>
+      <h1 className={styles.title}>
         {movie.title}{" "}
         {hasOriginalTitle && (
           <span className={styles.originalTitle}>({movie.original_title})</span>

@@ -6,6 +6,7 @@
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
 }
 
@@ -15,11 +16,12 @@
 }
 
 .starButton {
+  flex: 1 1 0;
+  max-width: 40px;
+  max-height: 40px;
   background-color: transparent;
   border: none;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
   transition: background-color var(--transition-fast);
 }
 
@@ -30,9 +32,14 @@
 
 .starIcon {
   color: var(--color-watched);
-  padding: var(--space-1);
 }
 
 .starIcon.solid {
   stroke: var(--color-bg);
+}
+
+@media (min-width: 769px) {
+  .starButton {
+    padding: var(--space-1);
+  }
 }

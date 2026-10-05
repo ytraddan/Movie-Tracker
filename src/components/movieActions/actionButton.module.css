@@ -2,7 +2,7 @@
   composes: base from "@/styles/button.module.css";
   gap: var(--space-1);
   background-color: var(--color-bg-overlay);
-  width: 8rem;
+  flex: 1 1 8rem;
   height: 2.5rem;
 }
 
@@ -28,4 +28,11 @@
 .icon {
   width: 24px;
   height: 24px;
+}
+
+@media (min-width: 769px) {
+  .button {
+    flex: none;
+    width: 8rem;
+  }
 }
