@@ -89,6 +89,7 @@
 @media (min-width: 769px) {
   .poster {
     width: 56px;
+    height: 84;
   }
 
   .overview {
