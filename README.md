@@ -6,11 +6,12 @@ Built as a portfolio project to practice combining server and client components 
 
 ## Features
 
-- Home page with 3 tabs : popular, top rated, upcoming and pagination
+- Home page with 3 tabs: popular, top rated, upcoming, and pagination
 - Debounced live search with results in a dropdown
-- Movie details page: dynamic route with additional inforamtion (overview, genres, cast, similar movies, etc.)
-- Personal collection: favorited movies with user rating (saved in local storage using Zustand)
-- Fallbacks for missing images, loading skeletons
+- Movie details page: dynamic route with additional information (overview, genres, cast, similar movies, etc.)
+- Personal collection: favorites, watch later and watched lists with a 1–10 user rating (saved in local storage using Zustand)
+- Responsive, mobile-first layout (breakpoints: 481px, 769px, 1025px)
+- Fallbacks for missing images, loading skeletons, error and not-found states
 
 ## Stack
 
@@ -19,7 +20,7 @@ Next.js 16 · React 19 · TypeScript · CSS Modules · Zustand · TanStack Query
 ## Structure
 
 ```
-src/app           routes: home, /movie/[id], /collection, /api/search
+src/app           routes: home, /collection, /movie/[id], /api/search, /api/movie/[id]
 src/components    UI components
 src/hooks         custom hooks
 src/lib           TMDB requests, types, constants, helpers
