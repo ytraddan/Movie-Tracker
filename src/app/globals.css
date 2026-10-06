@@ -142,6 +142,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body:has([data-page-loading]) > footer {
+  display: none;
+}
+
 main {
   flex: 1;
   width: 100%;
@@ -205,8 +209,8 @@ img {
 
 /*
   Breakpoints:
-    481px  — tablet
-    769px  — small desktop
+    481px  — mobile
+    769px  — tablet
    1025px  — desktop
 */
 
