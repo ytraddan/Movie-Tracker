@@ -8,7 +8,13 @@ interface BackgroundImage {
 export default function BackgroundImage({ path }: BackgroundImage) {
   return (
     <div className={styles.pageBackground}>
-      <Image src={path} alt="" fill className={styles.pageBackgroundImage} />
+      <Image
+        src={path}
+        loading="eager"
+        alt=""
+        fill
+        className={styles.pageBackgroundImage}
+      />
       <div className={styles.pageBackgroundOverlay} />
     </div>
   );
